@@ -11,11 +11,11 @@ Luke, Dylan, Victor, Lu, Angelo
 # Team Roles & Responsibilities
 | Name | Jobs/Roles |
 |------|------------|
-| Luke | Data 1 |  
-| Dylan | Data 2 |
-| Victor | Data 3 |
-| Lu | Data 4 |
-| Angelo | Data 5 |
+| Luke | Insert Roles Here |  
+| Dylan | Insert Roles Here |
+| Victor | Insert Roles Here |
+| Lu | Insert Roles Here |
+| Angelo | Insert Roles Here |
 # Challenges
 * Importing sprites
 * Determining the complexity of the enemy AI and capabilities
