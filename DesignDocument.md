@@ -7,7 +7,7 @@ Luke, Dylan, Victor, Lu, Angelo
 # Game Description
 * Top down bullet hell shooter
 * Endless spawning enemies
-* Circular Platform with an asset in the middle to protect as enemies continuously spawn
+* Protect the Payload as it traverses through a level with Enemies constantly spawning
 # Team Roles & Responsibilities
 | Name | Role 1 | Role 2 | 
 |------|------------|-----|
