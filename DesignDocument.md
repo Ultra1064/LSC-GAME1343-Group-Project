@@ -2,8 +2,8 @@
 Luke, Dylan, Victor, Lu, Angelo  
 # **Required Mechanics**
 * Protect a Target
-* Repeat Pattern
-* Instant Death
+* Bullet Hell
+* Switch Modes
 # Game Description
 * Top down bullet hell shooter
 * Endless spawning enemies
