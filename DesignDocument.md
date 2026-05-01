@@ -9,13 +9,13 @@ Luke, Dylan, Victor, Lu, Angelo
 * Endless spawning enemies
 * Circular Platform with an asset in the middle to protect as enemies continuously spawn
 # Team Roles & Responsibilities
-| Name | Jobs/Roles |
-|------|------------|
-| Luke | Insert Roles Here |  
-| Dylan | Insert Roles Here |
-| Victor | Insert Roles Here |
-| Lu | Insert Roles Here |
-| Angelo | Insert Roles Here |
+| Name | Role 1 | Role 2 | 
+|------|------------|-----|
+| Luke | Gameplay Programmer | Level Designer |
+| Dylan | Not Present In Week 1 | 
+| Victor | Sound Designer | AI Enemy Programmer |
+| Lu | Not Present In Week 1 |
+| Angelo | UI Programmer | Art Director |
 # Challenges
 * Importing sprites
 * Determining the complexity of the enemy AI and capabilities
@@ -27,3 +27,4 @@ Luke, Dylan, Victor, Lu, Angelo
 | Protected Asset Model | Player Damaged Audio |  
 | Enemy Model | Background Music |
 | Bullet Model |            |
+| Level Assets |
