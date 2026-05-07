@@ -30,8 +30,8 @@ public class PlayerControls : MonoBehaviour
     private void OnDisable()
     {
         moveAction.Player.Dash.performed -= OnDash;
-        moveAction.Player.Skill2.performed -= OnSkill2;
         moveAction.Player.Skill3.performed -= OnSkill3;
+        moveAction.Player.Skill2.performed -= OnSkill2;
         moveAction.Player.Skill1.performed -= OnSkill1;
         moveAction.Disable();
     }
