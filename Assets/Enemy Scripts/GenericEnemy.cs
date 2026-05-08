@@ -1,19 +1,46 @@
+using System.Collections;
 using UnityEngine;
 
 public class GenericEnemy : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1f;
-    private Vector2 target;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private Transform target;
+    [SerializeField] States state;
+    [SerializeField] Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        state = States.alive;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * moveSpeed * Time.deltaTime); //Vector2.down needs to be switched with the location of the payload
+        switch(state)
+        {
+            case States.alive:
+                UpdateAlive();
+                break;
+            case States.dead:
+                UpdateDead();
+                break;
+        }
+    }
+
+    void UpdateAlive()
+    {
+        if (target != null)
+        {
+            // Calculate direction vector
+            Vector2 direction = (target.position - transform.position).normalized;
+
+            // Move towards target
+            transform.Translate(direction * speed * Time.deltaTime);
+        }
+    }
+    void UpdateDead()
+    {
+
     }
 
     /*void Knockback()
@@ -21,7 +48,7 @@ public class GenericEnemy : MonoBehaviour
         Need a way to apply knockback when taking collision from a weapon. Also need 2Dcollision as player has a rigidbody.
     }
 
-    void calculateSpeed()
+    void calculateSpeed() //NOT USING THIS ANYMORE
     {
         Need a way to calculate speed based on speed of payload/camera. Enemies from the front might reach the payload too quickly, while as enemies from the back
         may not catch up.
@@ -35,11 +62,12 @@ public class GenericEnemy : MonoBehaviour
         from the payload to the enemy. Once the angle is calculated, I made a graphic for how the speed will be calculated based on the angle and the speed of the
         payload. Use Vector2.Angle(payloadVector, enemyVector);
     }
-
-    enum states()
+    */
+    enum States
     {
-        Need a state for being alive and for being dead. Starts as alive, dies when health is zero or other circumstance.
+       alive,
+       dead
     }
 
-    */
+    
 }
