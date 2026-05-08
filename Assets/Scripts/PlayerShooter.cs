@@ -5,13 +5,15 @@ public class PlayerShooter : MonoBehaviour
 {
     // References
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject barrelEnd;
+    [SerializeField] GameObject barrelEndRight;
+    [SerializeField] GameObject barrelEndLeft;
     [SerializeField] float timeBetweenBullets = 1f;
 
     // Variables
     private float timeAfterShooting;
     private IA_Player moveAction;
     private bool shooting = false;
+    private bool facingLeft = false;
 
     // Power Up Flags
     private bool increasedFireRate = false;
@@ -41,12 +43,26 @@ public class PlayerShooter : MonoBehaviour
     {
         shooting = false;
     }
-    
+    public void OnFlip(bool flipped)
+    {
+        facingLeft = flipped;
+    }
     private void Shoot()
     {
         timeAfterShooting = 0;
-        Vector2 position = barrelEnd.transform.position;
-        Quaternion rotation = barrelEnd.transform.rotation;
+        Vector2 position;
+        Quaternion rotation;
+        if (facingLeft)
+        {
+            
+            position = barrelEndLeft.transform.position;
+            rotation = barrelEndLeft.transform.rotation;
+        }
+        else
+        {
+            position = barrelEndRight.transform.position;
+            rotation = barrelEndRight.transform.rotation;
+        }
         Instantiate(bullet, position, rotation);
     }
     public void DivideFireRate(float amount)
@@ -59,7 +75,7 @@ public class PlayerShooter : MonoBehaviour
     }
     private void HigherFireRate()
     {
-        //static float currFireRatePowerUpTimer = 0;
+        // float currFireRatePowerUpTimer = 0;
     }
     private void FixedUpdate()
     {
