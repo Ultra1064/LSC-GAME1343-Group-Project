@@ -1,23 +1,22 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PowerUpShotgun : PowerUp
+public class PowerUpLaser : PowerUp
 {
-    private UnityEvent ShotgunOn = new UnityEvent();
+    private UnityEvent LaserOn = new UnityEvent();
     private PlayerShooter player;
 
     protected override void Awake()
     {
         player = FindFirstObjectByType<PlayerShooter>();
-        ShotgunOn.AddListener(player.ShotgunOn);
+        LaserOn.AddListener(player.LaserOn);
     }
-
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerControls>() != null)
         {
-            if (ShotgunOn != null)
-                ShotgunOn.Invoke();
+            if (LaserOn != null)
+                LaserOn.Invoke();
             Destroy(gameObject);
         }
     }

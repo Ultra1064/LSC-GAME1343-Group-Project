@@ -35,6 +35,7 @@ public class PlayerShooter : MonoBehaviour
         moveAction = new IA_Player();
         timeAfterShooting = timeBetweenBullets;
     }
+
     private void OnEnable()
     {
         moveAction.Enable();
@@ -46,6 +47,34 @@ public class PlayerShooter : MonoBehaviour
         moveAction.Player.Fire.performed -= OnFire;
         moveAction.Player.Fire.performed -= OffFire;
         moveAction.Disable();
+    }
+    private void FixedUpdate()
+    {
+        if (shooting && timeAfterShooting >= timeBetweenBullets)
+            Shoot();
+
+        if (currFireRateTimer >= fireRateTimer)
+        {
+            currFireRateTimer = fireRateTimer;
+            timeBetweenBullets = 1.0f;
+        }
+        if (currShotgunTimer >= shotgunTimer)
+        {
+            currShotgunTimer = shotgunTimer;
+            shotgunOn = false;
+        }
+        if (currLaserTimer >= laserTimer)
+        {
+            currLaserTimer = laserTimer;
+            laserOn = false;
+        }
+        if (timeAfterShooting >= timeBetweenBullets)
+            timeAfterShooting = timeBetweenBullets;
+
+        currFireRateTimer += Time.deltaTime;
+        currShotgunTimer += Time.deltaTime;
+        currLaserTimer += Time.deltaTime;
+        timeAfterShooting += Time.deltaTime;
     }
     private void OnFire(InputAction.CallbackContext ctx)
     {
@@ -77,26 +106,27 @@ public class PlayerShooter : MonoBehaviour
             rotation = barrelEndRight.transform.rotation;
         }
         Instantiate(bullet, position, rotation);
+        if (shotgunOn)
+        {
+            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 10));
+            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -10));
+            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 20));
+            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -20));
+        }
     }
     public void IncreasedFireRate()
     {
         timeBetweenBullets /= 10.0f;
         currFireRateTimer = 0;
     }
-    private void FixedUpdate()
+    public void ShotgunOn()
     {
-        if (shooting && timeAfterShooting >= timeBetweenBullets)
-            Shoot();
-
-        if (currFireRateTimer >= fireRateTimer)
-        {
-            currFireRateTimer = 10f;
-            timeBetweenBullets = 1.0f;
-        }
-        if (timeAfterShooting >= timeBetweenBullets)
-            timeAfterShooting = timeBetweenBullets;
-
-        currFireRateTimer += Time.deltaTime;
-        timeAfterShooting += Time.deltaTime;
+        shotgunOn = true;
+        currShotgunTimer = 0f;
+    }
+    public void LaserOn()
+    {
+        laserOn = true;
+        currLaserTimer = 0f;
     }
 }

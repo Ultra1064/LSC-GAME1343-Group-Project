@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class BulletMovement : MonoBehaviour
 {
+    [Header("Bullet Stats")]
     [SerializeField] float bulletSpeed = 1f;
     [SerializeField] float bulletLifeSpan = 1f;
     [SerializeField] Rigidbody2D rb;
@@ -11,8 +12,6 @@ public class BulletMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
     private void FixedUpdate()
     {
@@ -21,8 +20,11 @@ public class BulletMovement : MonoBehaviour
         if (bulletLife > bulletLifeSpan)
             Destroy(gameObject);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // For when Enemies have been implemented
+        if (collision.GetComponent<EnemyIdentifier>())
+        {
+            Destroy(gameObject);
+        }
     }
 }
