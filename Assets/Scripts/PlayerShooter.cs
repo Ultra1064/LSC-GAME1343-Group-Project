@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerShooter : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject barrelEndRight;
     [SerializeField] GameObject barrelEndLeft;
+    [SerializeField] CharacterLookAtMouse playerLooking;
+    [SerializeField] LineRenderer lineRenderer;
     // Weapon Stats
     [Header("Weapon Stats and Timers")]
     [SerializeField] float timeBetweenBullets = 1f;
@@ -20,6 +23,7 @@ public class PlayerShooter : MonoBehaviour
     private IA_Player moveAction;
     private bool shooting = false;
     private bool flipped = false;
+    private float laserDistance = 30f;
 
     // Power Up Flags
     private bool shotgunOn = false;
@@ -52,7 +56,8 @@ public class PlayerShooter : MonoBehaviour
     {
         if (shooting && timeAfterShooting >= timeBetweenBullets)
             Shoot();
-
+        else
+            lineRenderer.enabled = false;
         if (currFireRateTimer >= fireRateTimer)
         {
             currFireRateTimer = fireRateTimer;
@@ -90,28 +95,52 @@ public class PlayerShooter : MonoBehaviour
     }
     private void Shoot()
     {
-        timeAfterShooting = 0;
-
-        Vector2 position;
-        Quaternion rotation;
-
-        if (flipped)
+        if (laserOn)
         {
-            position = barrelEndLeft.transform.position;
-            rotation = barrelEndLeft.transform.rotation;
+            lineRenderer.enabled = true;
+            if (flipped)
+            {
+                lineRenderer.SetPosition(0, barrelEndLeft.transform.position);
+            }
+            else
+            {
+                lineRenderer.SetPosition(0, barrelEndRight.transform.position);
+            }
+            Vector2 direction = (playerLooking.GetMousePosition() - (Vector2)transform.position).normalized;
+            Vector2 endPoint = (Vector2)transform.position + (direction * laserDistance);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, laserDistance);
+            
+            if ((hit.collider != null))
+            {
+                endPoint = hit.point;
+            }
+            lineRenderer.SetPosition(1, endPoint);
         }
         else
         {
-            position = barrelEndRight.transform.position;
-            rotation = barrelEndRight.transform.rotation;
-        }
-        Instantiate(bullet, position, rotation);
-        if (shotgunOn)
-        {
-            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 10));
-            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -10));
-            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 20));
-            Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -20));
+            timeAfterShooting = 0;
+
+            Vector2 position;
+            Quaternion rotation;
+
+            if (flipped)
+            {
+                position = barrelEndLeft.transform.position;
+                rotation = barrelEndLeft.transform.rotation;
+            }
+            else
+            {
+                position = barrelEndRight.transform.position;
+                rotation = barrelEndRight.transform.rotation;
+            }
+            Instantiate(bullet, position, rotation);
+            if (shotgunOn)
+            {
+                Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 10));
+                Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -10));
+                Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, 20));
+                Instantiate(bullet, position, rotation * Quaternion.Euler(0, 0, -20));
+            }
         }
     }
     public void IncreasedFireRate()
