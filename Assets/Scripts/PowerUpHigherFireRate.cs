@@ -3,10 +3,16 @@ using UnityEngine.Events;
 
 public class PowerUpHigherFireRate : PowerUp
 {
-    [SerializeField] UnityEvent IncreaseFireRate;
-    private void OnTriggerEnter(Collider other)
+    private UnityEvent IncreaseFireRate = new UnityEvent();
+    private PlayerShooter player;
+    protected override void Awake()
     {
-        if (other.GetComponent<PlayerControls>() != null)
+        player = FindFirstObjectByType<PlayerShooter>();
+        IncreaseFireRate.AddListener(player.IncreasedFireRate);
+    }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerShooter>() == player)
         {
             if (IncreaseFireRate != null)
                 IncreaseFireRate.Invoke();

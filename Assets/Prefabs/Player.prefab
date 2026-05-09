@@ -176,6 +176,9 @@ MonoBehaviour:
   barrelEndRight: {fileID: 1293669562096843602}
   barrelEndLeft: {fileID: 6487802339471782846}
   timeBetweenBullets: 0.5
+  fireRateTimer: 10
+  shotgunTimer: 10
+  laserTimer: 5
 --- !u!114 &1312032392218044132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +255,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.006326735, y: 0.012654066}
+  m_Offset: {x: 0.047078848, y: -0.82956696}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -262,7 +265,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.505766, y: 4.884996}
+  m_Size: {x: 1.2831852, y: 4.6948175}
   m_EdgeRadius: 0
 --- !u!1 &6487802339471782846
 GameObject:

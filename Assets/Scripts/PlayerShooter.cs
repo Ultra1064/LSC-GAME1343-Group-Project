@@ -4,10 +4,16 @@ using UnityEngine.InputSystem;
 public class PlayerShooter : MonoBehaviour
 {
     // References
+    [Header("References")]
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject barrelEndRight;
     [SerializeField] GameObject barrelEndLeft;
+    // Weapon Stats
+    [Header("Weapon Stats and Timers")]
     [SerializeField] float timeBetweenBullets = 1f;
+    [SerializeField] float fireRateTimer = 10f;
+    [SerializeField] float shotgunTimer = 10f;
+    [SerializeField] float laserTimer = 5f;
 
     // Variables
     private float timeAfterShooting;
@@ -16,14 +22,19 @@ public class PlayerShooter : MonoBehaviour
     private bool flipped = false;
 
     // Power Up Flags
-    private bool increasedFireRate = false;
+    private bool shotgunOn = false;
+    private bool laserOn = false;
+
+    // Power Up Timers
+    private float currFireRateTimer = 10f;
+    private float currShotgunTimer = 10f;
+    private float currLaserTimer = 5f;
 
     private void Awake()
     {
         moveAction = new IA_Player();
         timeAfterShooting = timeBetweenBullets;
     }
-    
     private void OnEnable()
     {
         moveAction.Enable();
@@ -54,6 +65,7 @@ public class PlayerShooter : MonoBehaviour
 
         Vector2 position;
         Quaternion rotation;
+
         if (flipped)
         {
             position = barrelEndLeft.transform.position;
@@ -64,29 +76,27 @@ public class PlayerShooter : MonoBehaviour
             position = barrelEndRight.transform.position;
             rotation = barrelEndRight.transform.rotation;
         }
-            Instantiate(bullet, position, rotation);
-    }
-    public void DivideFireRate(float amount)
-    {
-        timeBetweenBullets /= amount;
+        Instantiate(bullet, position, rotation);
     }
     public void IncreasedFireRate()
     {
-        increasedFireRate = true;
-    }
-    private void HigherFireRate()
-    {
-        //static float currFireRatePowerUpTimer = 0;
+        timeBetweenBullets /= 10.0f;
+        currFireRateTimer = 0;
     }
     private void FixedUpdate()
     {
-        if (increasedFireRate)
-        {
-            HigherFireRate();
-        }
         if (shooting && timeAfterShooting >= timeBetweenBullets)
             Shoot();
-        else
-            timeAfterShooting += Time.deltaTime;
+
+        if (currFireRateTimer >= fireRateTimer)
+        {
+            currFireRateTimer = 10f;
+            timeBetweenBullets = 1.0f;
+        }
+        if (timeAfterShooting >= timeBetweenBullets)
+            timeAfterShooting = timeBetweenBullets;
+
+        currFireRateTimer += Time.deltaTime;
+        timeAfterShooting += Time.deltaTime;
     }
 }

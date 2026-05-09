@@ -5,6 +5,7 @@ public abstract class PowerUp : MonoBehaviour
 {
     [SerializeField] protected float powerUpTimeTillDespawn = 5f;
     protected float powerUpCurrTimer = 0;
+    protected abstract void Awake();
     protected virtual void FixedUpdate()
     {
         powerUpCurrTimer += Time.deltaTime;
@@ -13,4 +14,5 @@ public abstract class PowerUp : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    protected abstract void OnTriggerEnter2D(Collider2D other);
 }
