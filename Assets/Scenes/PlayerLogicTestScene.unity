@@ -130,6 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c8c1decb56a1c4eb4dcb849f7b9c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &389331343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293669562096843602, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+  m_PrefabInstance: {fileID: 5034744224516658515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &584552469
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122cef61d85be8f4989af4f0dd9e9c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpTimeTillDespawn: 5
+  powerUpTimeTillDespawn: 10
   IncreaseFireRate:
     m_PersistentCalls:
       m_Calls:
@@ -567,6 +572,11 @@ Transform:
   - {fileID: 842194117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640547514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6487802339471782846, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+  m_PrefabInstance: {fileID: 5034744224516658515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1891146310
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,10 +617,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 328910512}
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IsFlipped
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerShooter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789356174999950585, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: OnFlip.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3461526555046557702, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5108677833001198162, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: barrelEndLeft
+      value: 
+      objectReference: {fileID: 1640547514}
+    - target: {fileID: 5108677833001198162, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: barrelEndRight
+      value: 
+      objectReference: {fileID: 389331343}
     - target: {fileID: 7767272714683833350, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
