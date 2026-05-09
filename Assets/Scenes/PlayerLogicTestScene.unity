@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1170489450}
   - component: {fileID: 1170489451}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1803803060}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,6 +574,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 767588693638320842, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
+      propertyPath: powerUpTimeTillDespawn
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
       propertyPath: m_Name
       value: PowerUp_Shotgun
@@ -631,9 +635,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1293669562096843602, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736835479604220861, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3461526555046557702, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461526555046557702, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5108677833001198162, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       propertyPath: lineRenderer
@@ -643,6 +659,10 @@ PrefabInstance:
       propertyPath: playerLooking
       value: 
       objectReference: {fileID: 1732012320}
+    - target: {fileID: 6487802339471782846, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7767272714683833350, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -683,6 +703,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7989390471416811574, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940336421058130691, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -702,10 +730,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1409551453901692182, guid: 27731069f2973eb409cee3cb01445f2e, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 3031607736259044463, guid: 27731069f2973eb409cee3cb01445f2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.85
@@ -749,10 +773,6 @@ PrefabInstance:
     - target: {fileID: 3945103943578942077, guid: 27731069f2973eb409cee3cb01445f2e, type: 3}
       propertyPath: m_Name
       value: EnemyPlaceHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 3945103943578942077, guid: 27731069f2973eb409cee3cb01445f2e, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
