@@ -7,7 +7,7 @@ public class PowerUpHigherFireRate : PowerUp
     private PlayerShooter player;
     protected override void Awake()
     {
-        player = FindFirstObjectByType<PlayerShooter>();
+        player = FindAnyObjectByType<PlayerShooter>();
         IncreaseFireRate.AddListener(player.IncreasedFireRate);
     }
     protected override void OnTriggerEnter2D(Collider2D collision)

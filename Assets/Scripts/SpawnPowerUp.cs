@@ -11,7 +11,7 @@ public enum PowerUpType
 public class SpawnPowerUp : MonoBehaviour
 {
     [SerializeField] GameObject fireRatePowerUp;
-    [SerializeField] GameObject healthPowerUp;
+    //[SerializeField] GameObject healthPowerUp;
     [SerializeField] GameObject shotgunPowerUp;
     [SerializeField] GameObject laserPowerUp;
     [SerializeField] int spawnRate = 10;
@@ -20,25 +20,25 @@ public class SpawnPowerUp : MonoBehaviour
     private void Start()
     {
         type = (PowerUpType)UnityEngine.Random.Range(0,4);
-        Debug.Log(type);
     }
-    private void OnDestroy()
+    public void OnDestroy()
     {
-        if ((UnityEngine.Random.Range(1, 11) % spawnRate) == 0)
+        int rand = UnityEngine.Random.Range(1, spawnRate + 1);
+        if (rand == spawnRate)
         {
             switch (type)
             {
                 case PowerUpType.IncreaseFireRate:
-                    // Instantiate fireRatePowerUp
+                    Instantiate(fireRatePowerUp, transform.position, transform.rotation);
                     break;
                 case PowerUpType.Shotgun:
-                    // Instantiate shotgunPowerUp
+                    Instantiate(shotgunPowerUp, transform.position, transform.rotation);
                     break;
                 case PowerUpType.IncreaseHealth:
-                    // Instantiate healthPowerUp
+                    //Instantiate(healthPowerUp, transform.position, Quaternion.identity);
                     break;
                 case PowerUpType.Laser:
-                    // Instantiate laserPowerUp
+                    Instantiate(laserPowerUp, transform.position, transform.rotation);
                     break;
             }
         }

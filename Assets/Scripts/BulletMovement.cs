@@ -24,6 +24,7 @@ public class BulletMovement : MonoBehaviour
     {
         if (collision.GetComponent<EnemyIdentifier>())
         {
+            Destroy(collision.transform.parent.gameObject);
             Destroy(gameObject);
         }
     }

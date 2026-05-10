@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -11,12 +12,16 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] GameObject barrelEndLeft;
     [SerializeField] CharacterLookAtMouse playerLooking;
     [SerializeField] LineRenderer lineRenderer;
+
     // Weapon Stats
     [Header("Weapon Stats and Timers")]
     [SerializeField] float timeBetweenBullets = 1f;
     [SerializeField] float fireRateTimer = 10f;
     [SerializeField] float shotgunTimer = 10f;
     [SerializeField] float laserTimer = 5f;
+
+    // Unity Events
+    private UnityEvent<RaycastHit2D> LaserHit;
 
     // Variables
     private float timeAfterShooting;
