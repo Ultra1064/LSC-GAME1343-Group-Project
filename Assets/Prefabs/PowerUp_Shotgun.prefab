@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9012542724731535442}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerUp_Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1541618470177188126}
   - component: {fileID: 1065701304721954131}
   - component: {fileID: 767588693638320842}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotgunSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

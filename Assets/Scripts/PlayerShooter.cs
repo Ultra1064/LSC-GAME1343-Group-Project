@@ -115,10 +115,13 @@ public class PlayerShooter : MonoBehaviour
             Vector2 endPoint = (Vector2)transform.position + (direction * laserDistance);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, laserDistance);
             
-            if ((hit.collider != null))
+            if (hit.collider != null)
             {
                 endPoint = hit.point;
+                if (hit.collider.gameObject.GetComponent<EnemyIdentifier>() != null)
+                    Destroy(hit.collider.transform.parent.gameObject);
             }
+            
             lineRenderer.SetPosition(1, endPoint);
         }
         else

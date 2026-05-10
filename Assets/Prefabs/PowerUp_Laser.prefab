@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5648147199060249998}
   - component: {fileID: 3367881432250085331}
   - component: {fileID: 4693954071945139468}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48371194983383252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerUp_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
