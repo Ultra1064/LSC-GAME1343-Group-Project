@@ -24,7 +24,7 @@ public class SpawnPowerUp : MonoBehaviour
     public void OnDestroy()
     {
         int rand = UnityEngine.Random.Range(1, spawnRate + 1);
-        if (rand == spawnRate)
+        if (rand == spawnRate && this.gameObject.scene.isLoaded)
         {
             switch (type)
             {

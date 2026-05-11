@@ -119,7 +119,7 @@ public class PlayerShooter : MonoBehaviour
             {
                 endPoint = hit.point;
                 if (hit.collider.gameObject.GetComponent<EnemyIdentifier>() != null)
-                    Destroy(hit.collider.transform.parent.gameObject);
+                    Destroy(hit.collider.gameObject);
             }
             
             lineRenderer.SetPosition(1, endPoint);

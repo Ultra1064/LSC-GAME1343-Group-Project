@@ -19,7 +19,6 @@ public class EnemyDamager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControls>() != null && timeSinceLastDamaged >= enemyDamageCooldown)
         {
-            Debug.Log("iauehfuiahuifeh");
             OnDamaged.Invoke(enemyDamage);
             timeSinceLastDamaged = 0;
         }
