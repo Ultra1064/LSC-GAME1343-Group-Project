@@ -8,7 +8,10 @@ public abstract class HealthSystem : MonoBehaviour
 
     protected int health;
     protected float timeSinceLastDamaged;
-    protected abstract void Start();
+    protected virtual void Start()
+    {
+        health = maxHealth;
+    }
     protected virtual void FixedUpdate()
     {
         timeSinceLastDamaged += Time.deltaTime;
@@ -16,7 +19,20 @@ public abstract class HealthSystem : MonoBehaviour
             timeSinceLastDamaged = damagedCooldown;
         Debug.Log("Current health: " + health);
     }
-    public abstract void DecreaseHealth(int health);
-    public abstract void IncreaseHealth(int health);
-    public abstract int GetHealth();
+    public virtual void DecreaseHealth(int health)
+    {
+        if (timeSinceLastDamaged >= damagedCooldown)
+        {
+            timeSinceLastDamaged = 0;
+            this.health -= health;
+        }
+    }
+    public virtual void IncreaseHealth(int health)
+    {
+        this.health += health;
+    }
+    public virtual int GetHealth()
+    {
+        return health;
+    }
 }

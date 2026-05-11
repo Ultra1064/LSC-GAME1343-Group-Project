@@ -4,29 +4,30 @@ using UnityEngine.Events;
 public class EnemyDamager : MonoBehaviour
 {
     [SerializeField] int enemyDamage = 10;
-    [SerializeField] float enemyDamageCooldown = 3f;
 
-    private UnityEvent<int> OnDamaged = new UnityEvent<int>();
-    private float timeSinceLastDamaged = 0;
+    private UnityEvent<int> PlayerDamaged = new UnityEvent<int>();
+    private UnityEvent<int> PayloadDamaged = new UnityEvent<int>();
 
-    private HealthSystem playerHealth;
+    private PlayerHealthSystem playerHealth;
+    private PayloadHealthSystem payloadHealth;
     private void Awake()
     {
         playerHealth = FindAnyObjectByType<PlayerHealthSystem>();
-        OnDamaged.AddListener(playerHealth.DecreaseHealth);
+        payloadHealth = FindAnyObjectByType<PayloadHealthSystem>();
+
+        PlayerDamaged.AddListener(playerHealth.DecreaseHealth);
+        PayloadDamaged.AddListener(payloadHealth.DecreaseHealth);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerControls>() != null && timeSinceLastDamaged >= enemyDamageCooldown)
+        if (collision.GetComponent<PlayerControls>() != null)
         {
-            OnDamaged.Invoke(enemyDamage);
-            timeSinceLastDamaged = 0;
+            PlayerDamaged.Invoke(enemyDamage);
         }
-    }
-    private void FixedUpdate()
-    {
-        timeSinceLastDamaged += Time.deltaTime;
-        if (timeSinceLastDamaged >= enemyDamageCooldown)
-            timeSinceLastDamaged = enemyDamageCooldown;
+        if (collision.GetComponent<PayloadHealthSystem>() != null)
+        {
+            Debug.Log("Payload Hit");
+            PayloadDamaged.Invoke(enemyDamage);
+        }
     }
 }
