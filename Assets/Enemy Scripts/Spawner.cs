@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject bigEnemy;
     [SerializeField] private GameObject healEnemy;
-    [SerializeField] private GameObject slowingEnemy;
+    [SerializeField] private GameObject smolEnemy;
     [SerializeField] private Transform center;
     private float timer = 0;
     private int enemyType; //This is a dice roll
@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
             }
             else if (enemyType < 55)
             {
-                Instantiate(slowingEnemy, spawnPoint, transform.rotation);
+                Instantiate(smolEnemy, spawnPoint, transform.rotation);
             }
             else if (enemyType < 60)
             {
@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
             {
                 Instantiate(healEnemy, spawnPoint, transform.rotation);
                 spawnPoint = GetRandomPointInCircle();
-                Instantiate(slowingEnemy, spawnPoint, transform.rotation);
+                Instantiate(smolEnemy, spawnPoint, transform.rotation);
             }
             else if (enemyType < 100)
             {
@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
                 spawnPoint = GetRandomPointInCircle();
                 Instantiate(healEnemy, spawnPoint, transform.rotation);
                 spawnPoint = GetRandomPointInCircle();
-                Instantiate(slowingEnemy, spawnPoint, transform.rotation);
+                Instantiate(smolEnemy, spawnPoint, transform.rotation);
             }
         }
     }

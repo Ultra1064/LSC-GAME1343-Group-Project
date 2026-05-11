@@ -1,16 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class GenericEnemy : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private Transform target;
     [SerializeField] States state;
-    [SerializeField] Rigidbody rb;
+    Rigidbody rb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = States.alive;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,15 +42,23 @@ public class GenericEnemy : MonoBehaviour
     }
     void UpdateDead()
     {
-
+        speed = 0f;
+        float deathTimer = 0;
+        deathTimer += Time.deltaTime;
+        if (deathTimer >= 0.5)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    /*void Knockback()
+    private void Knockback(float amount)
     {
-        Need a way to apply knockback when taking collision from a weapon. Also need 2Dcollision as player has a rigidbody.
+        Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
+        rb.AddForce(away * amount, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
     }
 
-    void calculateSpeed() //NOT USING THIS ANYMORE
+    /*
+    void calculateSpeed() //IGNORE THIS //NOT USING THIS ANYMORE
     {
         Need a way to calculate speed based on speed of payload/camera. Enemies from the front might reach the payload too quickly, while as enemies from the back
         may not catch up.
@@ -69,5 +79,24 @@ public class GenericEnemy : MonoBehaviour
        dead
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(state == States.alive)
+        {
+            Damage(1);
+        }
+    }
+
+    void Damage(float amount)
+    {
+        if(true) //Health isn't zero
+        {
+            GetComponent<EnemyFlash>().FlashRed();
+        }
+        else
+        {
+            state = States.dead;
+            GetComponent<EnemyFlash>().FadeBlack();
+        }
+    }
 }
