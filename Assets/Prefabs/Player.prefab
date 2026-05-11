@@ -116,10 +116,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7767272714683833350}
   - component: {fileID: 90090469965089932}
-  - component: {fileID: 5108677833001198162}
-  - component: {fileID: 1312032392218044132}
   - component: {fileID: 3756873717142490137}
   - component: {fileID: 648181646219234168}
+  - component: {fileID: 5108677833001198162}
+  - component: {fileID: 1312032392218044132}
+  - component: {fileID: 8163810032213619615}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -174,42 +175,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5108677833001198162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3461526555046557702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c8c1decb56a1c4eb4dcb849f7b9c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 2216214664620897818, guid: 7b2e40c5c3f8f7a478f2025e55406c3b, type: 3}
-  barrelEndRight: {fileID: 1293669562096843602}
-  barrelEndLeft: {fileID: 6487802339471782846}
-  playerLooking: {fileID: 3319212463724733816}
-  lineRenderer: {fileID: 3605615889887882919}
-  timeBetweenBullets: 0.5
-  fireRateTimer: 10
-  shotgunTimer: 10
-  laserTimer: 5
---- !u!114 &1312032392218044132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3461526555046557702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32055a0bba3833b46aa32fdfafbe20f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  dashSpeed: 5
-  timeBetweenDashes: 0.3
 --- !u!50 &3756873717142490137
 Rigidbody2D:
   serializedVersion: 5
@@ -283,6 +248,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.2831852, y: 4.6948175}
   m_EdgeRadius: 0
+--- !u!114 &5108677833001198162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461526555046557702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c8c1decb56a1c4eb4dcb849f7b9c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2216214664620897818, guid: 7b2e40c5c3f8f7a478f2025e55406c3b, type: 3}
+  barrelEndRight: {fileID: 1293669562096843602}
+  barrelEndLeft: {fileID: 6487802339471782846}
+  playerLooking: {fileID: 3319212463724733816}
+  lineRenderer: {fileID: 3605615889887882919}
+  timeBetweenBullets: 0.5
+  fireRateTimer: 10
+  shotgunTimer: 10
+  laserTimer: 5
+--- !u!114 &1312032392218044132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461526555046557702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32055a0bba3833b46aa32fdfafbe20f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  dashSpeed: 5
+  timeBetweenDashes: 0.3
+--- !u!114 &8163810032213619615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461526555046557702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ce299b0afdccc41af28bee1edcce6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &4905620217045463883
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +400,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7525140593868713901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

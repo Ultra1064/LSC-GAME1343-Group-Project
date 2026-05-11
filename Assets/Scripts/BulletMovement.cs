@@ -22,7 +22,7 @@ public class BulletMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyIdentifier>())
+        if (collision.GetComponent<EnemyIdentifier>() != null)
         {
             Destroy(collision.transform.parent.gameObject);
             Destroy(gameObject);
