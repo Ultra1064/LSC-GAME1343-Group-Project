@@ -25,6 +25,12 @@ public class EnemyFlash : MonoBehaviour
         StartCoroutine(Black());
     }
 
+    public void FlashGreen()
+    {
+        StopAllCoroutines();
+        StartCoroutine(Green());
+    }
+
 
     private System.Collections.IEnumerator Red() //All IEnum is for, is for coroutines
     {
@@ -70,9 +76,36 @@ public class EnemyFlash : MonoBehaviour
         {
             t += Time.deltaTime;
             float lerp = t / (deathDuration / 2);
-            sr.color = Color.Lerp(originalColor, Color.clear, lerp);
+            sr.color = Color.Lerp(Color.black, Color.clear, lerp);
             yield return null;
         }
         sr.color = Color.clear; //Completely invisible
+    }
+
+    private System.Collections.IEnumerator Green() //All IEnum is for, is for coroutines
+    {
+        float t = 0f;
+
+        // Fade TO green
+        while (t < flashDuration)
+        {
+            t += Time.deltaTime;
+            float lerp = t / flashDuration;
+            sr.color = Color.Lerp(originalColor, Color.green, lerp);
+            yield return null;
+        }
+
+        t = 0f;
+
+        // Fade BACK to original
+        while (t < flashDuration)
+        {
+            t += Time.deltaTime;
+            float lerp = t / flashDuration;
+            sr.color = Color.Lerp(Color.green, originalColor, lerp);
+            yield return null;
+        }
+
+        sr.color = originalColor;
     }
 }
