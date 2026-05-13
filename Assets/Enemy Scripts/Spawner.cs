@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject bigEnemy;
     [SerializeField] private GameObject healEnemy;
     [SerializeField] private GameObject smolEnemy;
-    [SerializeField] private Transform center;
+    [SerializeField] private Transform center; //Meant to be the payload
     private float timer = 0;
     private int enemyType; //This is a dice roll
     private int radius = 11; //Radius that's out of bounds on the X side of the screen, but WAY too far on the Y

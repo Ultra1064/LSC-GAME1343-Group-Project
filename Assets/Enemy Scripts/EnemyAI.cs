@@ -42,10 +42,10 @@ public class EnemyAI : MonoBehaviour
     }
     void UpdateDead()
     {
-        speed = 0f;
+        speed = 0f; //Stops the enemy
         float deathTimer = 0;
-        deathTimer += Time.deltaTime;
-        if (deathTimer >= 0.5)
+        deathTimer += Time.deltaTime; //Keeps track of how long the enemy was dead for
+        if (deathTimer >= GetComponent<EnemyFlash>().deathDuration) //Once the animation is finished, enemy is removed from play
         {
             Destroy(gameObject);
         }
