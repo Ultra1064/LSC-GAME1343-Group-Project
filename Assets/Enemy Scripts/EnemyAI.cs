@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private int knockbackValue = 1;
+    [SerializeField] private int damageValue = 1;
     [SerializeField] private Transform target;
     [SerializeField] States state;
     SpriteRenderer sr;
@@ -69,7 +70,7 @@ public class EnemyAI : MonoBehaviour
     private void Knockback(int weaponKnockback)
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
-        rb.AddForce(away * weaponKnockback * knockbackValue, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
+        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
     } //The force is calculated by the knockback value of the enemy, plus the knockback value of the weapon that hit it
 
     /*
@@ -98,8 +99,19 @@ public class EnemyAI : MonoBehaviour
     {
         if(state == States.alive)
         {
-            Damage(1);
-            Knockback(1);
+            if (collision.gameObject.GetComponent<PayloadHealthSystem>() != null)
+            {
+                collision.gameObject.GetComponent<PayloadHealthSystem>().DecreaseHealth(damageValue);
+            }
+            else if (collision.gameObject.GetComponent<PlayerHealthSystem>() != null)
+            {
+                collision.gameObject.GetComponent<PlayerHealthSystem>().DecreaseHealth(damageValue);
+            }
+            else if (true)
+            {
+                Damage(1);
+                Knockback(1); //PlayerShooter script has bools for what weapon is currently being used.
+            }   
         }
     }
 
