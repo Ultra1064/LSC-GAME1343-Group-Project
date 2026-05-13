@@ -117,7 +117,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void Heal(int amount)
+    public void Heal(int amount)
     {
         healthSystem.IncreaseHealth(amount);
         flash.FlashGreen();

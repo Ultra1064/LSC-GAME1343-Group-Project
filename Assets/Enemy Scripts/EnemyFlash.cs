@@ -31,7 +31,6 @@ public class EnemyFlash : MonoBehaviour
         StartCoroutine(Green());
     }
 
-
     private System.Collections.IEnumerator Red() //All IEnum is for, is for coroutines
     {
         float t = 0f;
