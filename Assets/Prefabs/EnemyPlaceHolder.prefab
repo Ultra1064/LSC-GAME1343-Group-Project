@@ -97,9 +97,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3031607736259044463}
   - component: {fileID: 4784248663261956844}
-  - component: {fileID: 4266631733074951820}
   - component: {fileID: 7668645655705066908}
   - component: {fileID: 8317864575455419965}
+  - component: {fileID: 957271055531802802}
+  - component: {fileID: 5315683658994953150}
+  - component: {fileID: 214894141973515496}
   - component: {fileID: 7184669844118256319}
   m_Layer: 0
   m_Name: EnemyPlaceHolder
@@ -140,18 +142,6 @@ MonoBehaviour:
   shotgunPowerUp: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
   laserPowerUp: {fileID: 8672301646958888595, guid: 6f8ac57f75d0a034fb742a6ee04c0ae8, type: 3}
   spawnRate: 10
---- !u!114 &4266631733074951820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945103943578942077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a7dcc895ca1b846b01b30cc7f62127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7668645655705066908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +167,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a7dcc895ca1b846b01b30cc7f62127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &957271055531802802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945103943578942077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782c6d9d346872849b0174a12064b97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  target: {fileID: 0}
+  state: 0
+--- !u!114 &5315683658994953150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945103943578942077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7b0395fb005cc40b0823076be5fc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &214894141973515496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945103943578942077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0dd71e05866e544936e3b7ddd056d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.15
 --- !u!61 &7184669844118256319
 BoxCollider2D:
   m_ObjectHideFlags: 0
