@@ -109,8 +109,8 @@ public class EnemyAI : MonoBehaviour
             }
             else if (true)
             {
-                Damage(1);
-                Knockback(1); //PlayerShooter script has bools for what weapon is currently being used.
+                Damage(1); //Please replace this with GetComponent<NameOfScriptWithDamageVariable>.VarName or .FunctionCallNameToGetVar please.
+                Knockback(1); //Please replace this with GetComponent<NameOfScriptWithKnockbackVariable>.VarName or .FunctionCallNameToGetVar please.
             }   
         }
     }
