@@ -7,11 +7,17 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float dashSpeed = 10f;
     [SerializeField] float timeBetweenDashes = .2f;
+
+
+    [SerializeField] Animator animator;
+    
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private IA_Player moveAction;
     private bool dashing;
     private float timeAfterDashing;
+
+    private Vector2 rawInput;
 
     private void Awake()
     {
@@ -76,4 +82,21 @@ public class PlayerControls : MonoBehaviour
             }
         }
     }
+
+    void OnMove(InputValue v)
+    {
+        moveInput = v.Get<Vector2>();
+        
+    }
+
+    void Movement()
+    {
+        float currentSpeed = rawInput.magnitude;
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", currentSpeed);
+        }
+    }
+
 }
