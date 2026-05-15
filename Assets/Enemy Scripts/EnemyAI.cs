@@ -6,13 +6,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private Transform target;
     [SerializeField] States state;
-    Rigidbody rb;
+    Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = States.alive;
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
+        target = FindAnyObjectByType<PayloadHealthSystem>().transform;
     }
 
     // Update is called once per frame
@@ -51,10 +52,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void Knockback(float amount)
+    public void Knockback(float amount)
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
-        rb.AddForce(away * amount, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
+        rb.AddForce(away * amount, ForceMode2D.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
     }
 
     /*

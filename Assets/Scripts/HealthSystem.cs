@@ -17,7 +17,6 @@ public abstract class HealthSystem : MonoBehaviour
         timeSinceLastDamaged += Time.deltaTime;
         if (timeSinceLastDamaged >= damagedCooldown)
             timeSinceLastDamaged = damagedCooldown;
-        Debug.Log("Current health: " + health);
     }
     public virtual void DecreaseHealth(int health)
     {

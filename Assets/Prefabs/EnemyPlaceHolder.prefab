@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 957271055531802802}
   - component: {fileID: 5315683658994953150}
   - component: {fileID: 214894141973515496}
+  - component: {fileID: 6131899084052718370}
   - component: {fileID: 7184669844118256319}
   m_Layer: 0
   m_Name: EnemyPlaceHolder
@@ -207,6 +208,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.15
+--- !u!114 &6131899084052718370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945103943578942077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ad30d64c00b0c428c0e2805832b7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  damagedCooldown: 0.3
 --- !u!61 &7184669844118256319
 BoxCollider2D:
   m_ObjectHideFlags: 0
