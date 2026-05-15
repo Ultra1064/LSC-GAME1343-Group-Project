@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Knockback(int weaponKnockback)
+    public void Knockback(float weaponKnockback) //Changed to float from int since Bullet Knockback on BulletMovement is a float *shrug*
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
         rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
@@ -109,15 +109,15 @@ public class EnemyAI : MonoBehaviour
             {
                 collision.gameObject.GetComponent<PlayerHealthSystem>().DecreaseHealth(damageValue);
             }
-            else if (true)
+            /*else if (collision.gameObject.GetComponent<BulletMovement>() != null)
             {
                 Damage(1); //Please replace this with GetComponent<NameOfScriptWithDamageVariable>.VarName or .FunctionCallNameToGetVar please.
                 Knockback(1); //Please replace this with GetComponent<NameOfScriptWithKnockbackVariable>.VarName or .FunctionCallNameToGetVar please.
-            }   
+            }*/ //Removing this as BulletMovement contains what's needed I guess.   
         }
     }
 
-    void Damage(int amount)
+    public void Damage(int amount)
     {
         healthSystem.DecreaseHealth(amount);
         if(healthSystem.GetHealth() > 0) //Health isn't zero

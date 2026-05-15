@@ -26,7 +26,7 @@ public class BulletMovement : MonoBehaviour
     {
         if (collision.GetComponent<EnemyIdentifier>() != null)
         {
-            collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage);
+            collision.GetComponent<EnemyAI>().Damage(bulletDamage); //Changed from collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage); If Damage isn't called, the enemy won't flash red. -Victor
             collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
             Destroy(gameObject);
         }
