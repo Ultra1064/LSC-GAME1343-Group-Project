@@ -200,3 +200,4 @@ MonoBehaviour:
   damageValue: 20
   target: {fileID: 0}
   state: 0
+  die: {fileID: 8300000, guid: e89866fcd67b31f40b430f0a4dcadd4d, type: 3}

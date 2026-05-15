@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class EnemyAI : MonoBehaviour
     EnemyHealthSystem healthSystem;
     EnemyFlash flash;
 
+    AudioSource source;
+    [SerializeField] AudioClip die;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +28,8 @@ public class EnemyAI : MonoBehaviour
         healthSystem = GetComponent<EnemyHealthSystem>();
         flash = GetComponent<EnemyFlash>();
         sr = GetComponentInChildren<SpriteRenderer>(); //This grabs the Sprite Renderer on the 2D object.
+
+        source = Object.FindFirstObjectByType<AudioSource>(); //Needed to add this for sound
     }
 
     // Update is called once per frame
@@ -126,6 +132,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            source.PlayOneShot(die); //This plays the sound when the enemy dies
             state = States.dead;
             flash.FadeBlack();
         }

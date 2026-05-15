@@ -104,7 +104,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   bulletLifeSpan: 3
+  bulletDamage: 10
+  bulletKnockback: 1
   rb: {fileID: 7254345756980437095}
+  source: {fileID: 0}
+  fire: {fileID: 8300000, guid: 3b237c2491b574a45891516bb2462504, type: 3}
+  hit: {fileID: 8300000, guid: 0c81ec4302cd90449bbaa258e4e3bef4, type: 3}
 --- !u!61 &7101851159032699050
 BoxCollider2D:
   m_ObjectHideFlags: 0

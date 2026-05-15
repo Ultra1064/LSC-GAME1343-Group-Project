@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
+using static Unity.VisualScripting.Member;
 
 public class BulletMovement : MonoBehaviour
 {
@@ -10,10 +11,21 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] float bulletKnockback = 1.0f;
     [SerializeField] Rigidbody2D rb;
 
+    private AudioSource source;
+    [SerializeField] AudioClip fire;
+    [SerializeField] AudioClip hit;
+
     private float bulletLife = 0f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        source = Object.FindFirstObjectByType<AudioSource>(); //Needed to add this for sound
+    }
+
+    private void Start()
+    {
+        source.PlayOneShot(fire); //This plays a sound when a bullet is fired
     }
     private void FixedUpdate()
     {
@@ -28,7 +40,9 @@ public class BulletMovement : MonoBehaviour
         {
             collision.GetComponent<EnemyAI>().Damage(bulletDamage); //Changed from collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage); If Damage isn't called, the enemy won't flash red. -Victor
             collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
+            source.PlayOneShot(hit); //This plays a sound when the bullet hits
             Destroy(gameObject);
+            
         }
     }
 }
