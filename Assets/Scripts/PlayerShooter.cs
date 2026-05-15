@@ -15,6 +15,7 @@ public class PlayerShooter : MonoBehaviour
 
     // Weapon Stats
     [Header("Weapon Stats and Timers")]
+    [SerializeField] int laserDamage = 10;
     [SerializeField] float timeBetweenBullets = 1f;
     [SerializeField] float fireRateTimer = 10f;
     [SerializeField] float shotgunTimer = 10f;
@@ -119,7 +120,9 @@ public class PlayerShooter : MonoBehaviour
             {
                 endPoint = hit.point;
                 if (hit.collider.gameObject.GetComponent<EnemyIdentifier>() != null)
-                    Destroy(hit.collider.gameObject);
+                {
+                    hit.collider.gameObject.GetComponent<EnemyHealthSystem>().DecreaseHealth(laserDamage);
+                }
             }
             
             lineRenderer.SetPosition(1, endPoint);

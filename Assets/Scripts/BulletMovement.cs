@@ -6,6 +6,8 @@ public class BulletMovement : MonoBehaviour
     [Header("Bullet Stats")]
     [SerializeField] float bulletSpeed = 1f;
     [SerializeField] float bulletLifeSpan = 1f;
+    [SerializeField] int bulletDamage = 10;
+    [SerializeField] float bulletKnockback = 1.0f;
     [SerializeField] Rigidbody2D rb;
 
     private float bulletLife = 0f;
@@ -24,7 +26,8 @@ public class BulletMovement : MonoBehaviour
     {
         if (collision.GetComponent<EnemyIdentifier>() != null)
         {
-            Destroy(collision.gameObject);
+            collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage);
+            collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
             Destroy(gameObject);
         }
     }

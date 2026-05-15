@@ -8,15 +8,18 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private int damageValue = 1;
     [SerializeField] public Transform target;
     [SerializeField] States state;
+
     SpriteRenderer sr;
     Rigidbody rb;
     EnemyHealthSystem healthSystem;
     EnemyFlash flash;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = States.alive;
+
         rb = GetComponent<Rigidbody>();
         healthSystem = GetComponent<EnemyHealthSystem>();
         flash = GetComponent<EnemyFlash>();
@@ -66,7 +69,6 @@ public class EnemyAI : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void Knockback(int weaponKnockback)
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
