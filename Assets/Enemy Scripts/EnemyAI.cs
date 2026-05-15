@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    [SerializeField] private int knockbackValue = 1;
+    [SerializeField] private float knockbackValue = 1f;
     [SerializeField] private int damageValue = 1;
     [SerializeField] private Transform target;
     [SerializeField] States state;
