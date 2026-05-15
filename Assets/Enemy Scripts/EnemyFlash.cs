@@ -5,7 +5,8 @@ public class EnemyFlash : MonoBehaviour
     private SpriteRenderer sr;
     private Color originalColor;
     [SerializeField] private float flashDuration = 0.15f;
-
+    [SerializeField] public float deathDuration = 0.25f; //This decides how long the death animation lasts for an enemy.
+    //Make coroutines into one singular function that takes other colors.
     void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>(); //This grabs the Sprite Renderer on the 2D object.
@@ -15,54 +16,68 @@ public class EnemyFlash : MonoBehaviour
     public void FlashRed()
     {
         StopAllCoroutines();
-        StartCoroutine(Red());
+        StartCoroutine(Flash(Color.red, flashDuration));
     }
 
     public void FadeBlack()
     {
         StopAllCoroutines();
-        StartCoroutine(Black());
+        StartCoroutine(Death());
     }
 
-
-    private System.Collections.IEnumerator Red() //All IEnum is for, is for coroutines
+    public void FlashGreen()
     {
-        float t = 0f;
+        StopAllCoroutines();
+        StartCoroutine(Flash(Color.green, flashDuration));
+    }
 
-        // Fade TO red
-        while (t < flashDuration)
+    private System.Collections.IEnumerator Flash(Color color, float duration) //All IEnum is for, is for coroutines
+    {
+        float timer = 0f;
+
+        // Fade TO the second color from the first.
+        while (timer < duration)
         {
-            t += Time.deltaTime;
-            float lerp = t / flashDuration;
-            sr.color = Color.Lerp(originalColor, Color.red, lerp);
+            timer += Time.deltaTime;
+            float lerp = timer / duration;
+            sr.color = Color.Lerp(originalColor, color, lerp);
             yield return null;
         }
 
-        t = 0f;
+        timer = 0f;
 
-        // Fade BACK to original
-        while (t < flashDuration)
+        // Fade BACK to original color.
+        while (timer < duration)
         {
-            t += Time.deltaTime;
-            float lerp = t / flashDuration;
-            sr.color = Color.Lerp(Color.red, originalColor, lerp);
+            timer += Time.deltaTime;
+            float lerp = timer / duration;
+            sr.color = Color.Lerp(color, originalColor, lerp);
             yield return null;
         }
 
         sr.color = originalColor;
     }
 
-    private System.Collections.IEnumerator Black() //All IEnum is for, is for coroutines
+    private System.Collections.IEnumerator Death() //All IEnum is for, is for coroutines
     {
-        float t = 0f;
+        float timer = 0f;
 
         // Fade TO black
-        while (t < flashDuration)
+        while (timer < (deathDuration / 2)) //In the first half of the death duration, the enemy fades to black.
         {
-            t += Time.deltaTime;
-            float lerp = t / 0.5f;
+            timer += Time.deltaTime;
+            float lerp = timer / (deathDuration / 2);
             sr.color = Color.Lerp(originalColor, Color.black, lerp);
             yield return null;
         }
+        //Fade to clear
+        while (timer < deathDuration) //In the second half of the death duration, the enemy disappears.
+        {
+            timer += Time.deltaTime;
+            float lerp = timer / (deathDuration / 2);
+            sr.color = Color.Lerp(Color.black, Color.clear, lerp);
+            yield return null;
+        }
+        sr.color = Color.clear; //Completely invisible
     }
 }

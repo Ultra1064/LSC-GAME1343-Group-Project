@@ -4,21 +4,29 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    [SerializeField] private Transform target;
+    [SerializeField] private float knockbackValue = 1f;
+    [SerializeField] private int damageValue = 1;
+    [SerializeField] public Transform target;
     [SerializeField] States state;
+    SpriteRenderer sr;
     Rigidbody rb;
+    EnemyHealthSystem healthSystem;
+    EnemyFlash flash;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = States.alive;
         rb = GetComponent<Rigidbody>();
+        healthSystem = GetComponent<EnemyHealthSystem>();
+        flash = GetComponent<EnemyFlash>();
+        sr = GetComponentInChildren<SpriteRenderer>(); //This grabs the Sprite Renderer on the 2D object.
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(state)
+        switch (state)
         {
             case States.alive:
                 UpdateAlive();
@@ -33,6 +41,14 @@ public class EnemyAI : MonoBehaviour
     {
         if (target != null)
         {
+            if (target.position.x < transform.position.x) //This checks if the target is to the left of the enemy
+            {
+                sr.flipX = true; //If it is, then it flips the sprite!
+            }
+            else
+            {
+                sr.flipX = false; //If it isn't, it returns to normal!
+            }
             // Calculate direction vector
             Vector2 direction = (target.position - transform.position).normalized;
 
@@ -42,20 +58,20 @@ public class EnemyAI : MonoBehaviour
     }
     void UpdateDead()
     {
-        speed = 0f;
+        speed = 0f; //Stops the enemy
         float deathTimer = 0;
-        deathTimer += Time.deltaTime;
-        if (deathTimer >= 0.5)
+        deathTimer += Time.deltaTime; //Keeps track of how long the enemy was dead for
+        if (deathTimer >= GetComponent<EnemyFlash>().deathDuration) //Once the animation is finished, enemy is removed from play
         {
             Destroy(gameObject);
         }
     }
 
-    private void Knockback(float amount)
+    private void Knockback(int weaponKnockback)
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
-        rb.AddForce(away * amount, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
-    }
+        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
+    } //The force is calculated by the knockback value of the enemy, plus the knockback value of the weapon that hit it
 
     /*
     void calculateSpeed() //IGNORE THIS //NOT USING THIS ANYMORE
@@ -83,20 +99,39 @@ public class EnemyAI : MonoBehaviour
     {
         if(state == States.alive)
         {
-            Damage(1);
+            if (collision.gameObject.GetComponent<PayloadHealthSystem>() != null)
+            {
+                collision.gameObject.GetComponent<PayloadHealthSystem>().DecreaseHealth(damageValue);
+            }
+            else if (collision.gameObject.GetComponent<PlayerHealthSystem>() != null)
+            {
+                collision.gameObject.GetComponent<PlayerHealthSystem>().DecreaseHealth(damageValue);
+            }
+            else if (true)
+            {
+                Damage(1);
+                Knockback(1); //PlayerShooter script has bools for what weapon is currently being used.
+            }   
         }
     }
 
-    void Damage(float amount)
+    void Damage(int amount)
     {
-        if(true) //Health isn't zero
+        healthSystem.DecreaseHealth(amount);
+        if(healthSystem.GetHealth() > 0) //Health isn't zero
         {
-            GetComponent<EnemyFlash>().FlashRed();
+            flash.FlashRed();
         }
         else
         {
             state = States.dead;
-            GetComponent<EnemyFlash>().FadeBlack();
+            flash.FadeBlack();
         }
+    }
+
+    public void Heal(int amount)
+    {
+        healthSystem.IncreaseHealth(amount);
+        flash.FlashGreen();
     }
 }
