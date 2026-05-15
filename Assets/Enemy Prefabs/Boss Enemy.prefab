@@ -201,3 +201,7 @@ MonoBehaviour:
   target: {fileID: 0}
   state: 0
   die: {fileID: 8300000, guid: e89866fcd67b31f40b430f0a4dcadd4d, type: 3}
+  heal: {fileID: 0}
+  fireRate: {fileID: 5712141986779119763, guid: bb833782e17cca54f92516349db969c2, type: 3}
+  laser: {fileID: 8672301646958888595, guid: 6f8ac57f75d0a034fb742a6ee04c0ae8, type: 3}
+  shotgun: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}

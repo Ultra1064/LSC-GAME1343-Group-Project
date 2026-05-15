@@ -18,6 +18,11 @@ public class EnemyAI : MonoBehaviour
     AudioSource source;
     [SerializeField] AudioClip die;
 
+    [SerializeField] GameObject heal;
+    [SerializeField] GameObject fireRate;
+    [SerializeField] GameObject laser;
+    [SerializeField] GameObject shotgun;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -99,13 +104,13 @@ public class EnemyAI : MonoBehaviour
     */
     enum States
     {
-       alive,
-       dead
+        alive,
+        dead
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(state == States.alive)
+        if (state == States.alive)
         {
             if (collision.gameObject.GetComponent<PayloadHealthSystem>() != null)
             {
@@ -126,15 +131,38 @@ public class EnemyAI : MonoBehaviour
     public void Damage(int amount)
     {
         healthSystem.DecreaseHealth(amount);
-        if(healthSystem.GetHealth() > 0) //Health isn't zero
+        if (healthSystem.GetHealth() > 0) //Health isn't zero
         {
             flash.FlashRed();
         }
         else
         {
-            source.PlayOneShot(die); //This plays the sound when the enemy dies
-            state = States.dead;
-            flash.FadeBlack();
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        source.PlayOneShot(die); //This plays the sound when the enemy dies
+        state = States.dead;
+        flash.FadeBlack();
+        RollForPowerup();
+    }
+
+    private void RollForPowerup()
+    {
+        int roll = Random.Range(1, 100);
+        if (roll > 85)
+        {
+            roll = Random.Range(1, 10);
+            if (roll == 10)
+                Instantiate(laser, transform.position, transform.rotation);
+            else if (roll > 6)
+                Instantiate(shotgun, transform.position, transform.rotation);
+            else if (roll > 3)
+                Instantiate(heal, transform.position, transform.rotation);
+            else
+                Instantiate(fireRate, transform.position, transform.rotation);
         }
     }
 
