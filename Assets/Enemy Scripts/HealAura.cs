@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealAura : MonoBehaviour
 {
     [SerializeField] private int healValue = 1; //The amount healed
-    [SerializeField] private float healInterval = 1.0f; //The amount of time required to stay inside the circle to be healed.
+    [SerializeField] private float healInterval = 0.5f; //The amount of time required to stay inside the circle to be healed.
     private float timer = 0;
     private bool canHeal = false;
     void Update() //Update goes first, so it first increments the timer.
@@ -29,7 +29,7 @@ public class HealAura : MonoBehaviour
             if (canHeal)
             {
                 collision.GetComponent<EnemyAI>().Heal(healValue);
-                canHeal = false;
+                canHeal = false; //Apparently this new method ONLY heals ONE guy, which is sad. Unsure how to fix.
                 timer = 0;
             }
         }
