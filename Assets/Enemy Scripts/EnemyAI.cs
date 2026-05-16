@@ -18,6 +18,10 @@ public class EnemyAI : MonoBehaviour
     AudioSource source;
     [SerializeField] AudioClip die;
 
+
+    private int currentFrame;
+    private float frameTimer;
+
     [SerializeField] GameObject heal;
     [SerializeField] GameObject fireRate;
     [SerializeField] GameObject laser;
@@ -49,6 +53,14 @@ public class EnemyAI : MonoBehaviour
         {
             case States.alive:
                 UpdateAlive();
+                if (target != null)
+            {
+                PlayWalkAnimation();
+            }
+            else
+            {
+                spriteRenderer.sprite = idleSprite;
+            }
                 break;
             case States.dead:
                 UpdateDead();
@@ -73,6 +85,7 @@ public class EnemyAI : MonoBehaviour
 
             // Move towards target
             transform.Translate(direction * speed * Time.deltaTime);
+
         }
     }
     void UpdateDead()
@@ -175,5 +188,16 @@ public class EnemyAI : MonoBehaviour
     {
         healthSystem.IncreaseHealth(amount);
         flash.FlashGreen();
+    }
+    void PlayWalkAnimation()
+    {
+        frameTimer -= Time.deltaTime;
+
+        if (frameTimer <= 0)
+        {
+            frameTimer = frameRate;
+            currentFrame = (currentFrame + 1) % walkSprites.Length;
+            spriteRenderer.sprite = walkSprites[currentFrame];
+        }
     }
 }
