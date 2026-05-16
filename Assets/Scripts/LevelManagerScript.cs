@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,13 @@ public class LevelManagerScript : MonoBehaviour
     [SerializeField] float timeToWin = 120f;
     
     private float currTimer = 0f;
+
+    private bool isPaused = false;
+    [SerializeField] private GameObject PAUSED;
+    [SerializeField] private GameObject QUIT;
+    [SerializeField] private GameObject RETRY;
+    [SerializeField] private GameObject GAMEOVER;
+    //Hey, Angelo here, I added this just to make sure .SetActive works
     void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -36,5 +44,36 @@ public class LevelManagerScript : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused == true)
+        {
+            PAUSED.SetActive(true);
+            QUIT.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        else
+        {
+        PAUSED.SetActive(false);
+        QUIT.SetActive(false);
+        Time.timeScale = 1f;
+        }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(1);
+        GAMEOVER.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ReturntoMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
