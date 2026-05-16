@@ -143,7 +143,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Death()
     {
-        //source.PlayOneShot(die); //This plays the sound when the enemy dies
+        source.PlayOneShot(die); //This plays the sound when the enemy dies
         state = States.dead;
         flash.FadeBlack();
         RollForPowerup();
