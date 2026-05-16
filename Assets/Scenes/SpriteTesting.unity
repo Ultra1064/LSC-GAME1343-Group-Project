@@ -146,11 +146,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &200101502 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7767272714683833350, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
-  m_PrefabInstance: {fileID: 5034744224516658515}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &362896754 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6045404833556241600, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
@@ -510,11 +505,11 @@ Transform:
   m_GameObject: {fileID: 1202610184}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3, y: 8.82, z: 0}
-  m_LocalScale: {x: 2.4999998, y: 2.4999998, z: 2.4999998}
+  m_LocalPosition: {x: -6.0600004, y: 3.7180002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 200101502}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1310671396
 PrefabInstance:
@@ -745,12 +740,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619565376}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.09, y: 1.76, z: 0}
   m_LocalScale: {x: 0.73658997, y: 0.6374793, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1877786114}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877786110
 GameObject:
@@ -886,7 +881,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 810147578}
-  - {fileID: 1619565378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5034744224516658515
@@ -1027,10 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b3188c3cf572d6245b6200b7a3b85085, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7767272714683833350, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1202610186}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3461526555046557702, guid: a383b7236a7d275429291ae72efb38a0, type: 3}
       insertIndex: -1
@@ -1118,6 +1109,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1023955349}
+  - {fileID: 1619565378}
+  - {fileID: 1202610186}
   - {fileID: 5034744224516658515}
   - {fileID: 852881455}
   - {fileID: 7877996903144660987}
