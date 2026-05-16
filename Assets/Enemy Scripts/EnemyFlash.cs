@@ -78,6 +78,6 @@ public class EnemyFlash : MonoBehaviour
             sr.color = Color.Lerp(Color.black, Color.clear, lerp);
             yield return null;
         }
-        sr.color = Color.clear; //Completely invisible
+        Destroy(gameObject);
     }
 }

@@ -77,6 +77,7 @@ public class EnemyAI : MonoBehaviour
         deathTimer += Time.deltaTime; //Keeps track of how long the enemy was dead for
         if (deathTimer >= GetComponent<EnemyFlash>().deathDuration) //Once the animation is finished, enemy is removed from play
         {
+            Debug.Log("I'm supposed to die!"); //For some reason this doesn't work, I moved the Destroy() to the coroutine on EnemyFlash
             Destroy(gameObject);
         }
     }
