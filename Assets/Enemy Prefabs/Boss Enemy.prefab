@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3427518766031853783}
   - component: {fileID: 7955018821940779232}
   - component: {fileID: 4583069702860842072}
+  - component: {fileID: 3361451335782075321}
   - component: {fileID: 1368891407923698012}
   - component: {fileID: 8411538115930087794}
   - component: {fileID: 5622654264011039846}
+  - component: {fileID: 351306377417367416}
   m_Layer: 0
   m_Name: Boss Enemy
   m_TagString: Untagged
@@ -149,13 +151,25 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &3361451335782075321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623817289810860591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a7dcc895ca1b846b01b30cc7f62127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1368891407923698012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +219,16 @@ MonoBehaviour:
   fireRate: {fileID: 5712141986779119763, guid: bb833782e17cca54f92516349db969c2, type: 3}
   laser: {fileID: 8672301646958888595, guid: 6f8ac57f75d0a034fb742a6ee04c0ae8, type: 3}
   shotgun: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
+--- !u!114 &351306377417367416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623817289810860591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20bb16fc1bc15042b32f7337bb583b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 10

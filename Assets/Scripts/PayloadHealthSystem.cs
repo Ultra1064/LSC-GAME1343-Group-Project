@@ -9,5 +9,4 @@ public class PayloadHealthSystem : HealthSystem
             timeSinceLastDamaged = damagedCooldown;
         Debug.Log("Payload health: " + health);
     }
-    
 }

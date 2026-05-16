@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] States state;
 
     SpriteRenderer sr;
-    Rigidbody rb;
+    Rigidbody2D rb;
     EnemyHealthSystem healthSystem;
     EnemyFlash flash;
 
@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     {
         state = States.alive;
 
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         healthSystem = GetComponent<EnemyHealthSystem>();
         flash = GetComponent<EnemyFlash>();
         sr = GetComponentInChildren<SpriteRenderer>(); //This grabs the Sprite Renderer on the 2D object.
@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
     public void Knockback(float weaponKnockback) //Changed to float from int since Bullet Knockback on BulletMovement is a float *shrug*
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
-        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
+        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode2D.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
     } //The force is calculated by the knockback value of the enemy, plus the knockback value of the weapon that hit it
 
     /*
@@ -143,7 +143,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Death()
     {
-        source.PlayOneShot(die); //This plays the sound when the enemy dies
+        //source.PlayOneShot(die); //This plays the sound when the enemy dies
         state = States.dead;
         flash.FadeBlack();
         RollForPowerup();
