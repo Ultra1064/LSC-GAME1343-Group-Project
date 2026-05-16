@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba471536d87546449a57316e9f901fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2967254351686843524, guid: 81c4ed967eb556147bec644d68ae13c8, type: 3}
-  bigEnemy: {fileID: 7492269898495190113, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
-  healEnemy: {fileID: 21332377286364912, guid: 84277e8865d0c6f47b209d5438d66ae7, type: 3}
-  smolEnemy: {fileID: 2169895056953731029, guid: 1a2f463da1b66894da63e84f277bb5d6, type: 3}
-  bossEnemy: {fileID: 1623817289810860591, guid: 5dee921b28c18af4798dfbb7e3d60847, type: 3}
+  enemy: {fileID: 6283857013197527517, guid: ec1eb695ecc497e4095d3f891ea0df51, type: 3}
+  bigEnemy: {fileID: 825566927179689086, guid: f0f9c8315093d6c40ab70e22efac5647, type: 3}
+  healEnemy: {fileID: 825566927179689086, guid: f0f9c8315093d6c40ab70e22efac5647, type: 3}
+  smolEnemy: {fileID: 8983233367522219889, guid: 8222b359dd7edb941bba3ab60cd9e350, type: 3}
+  bossEnemy: {fileID: 825566927179689086, guid: f0f9c8315093d6c40ab70e22efac5647, type: 3}
   center: {fileID: 0}
   radius: 11
