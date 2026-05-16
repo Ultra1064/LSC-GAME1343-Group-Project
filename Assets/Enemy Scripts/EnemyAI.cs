@@ -18,10 +18,19 @@ public class EnemyAI : MonoBehaviour
     AudioSource source;
     [SerializeField] AudioClip die;
 
+
+    private int currentFrame;
+    private float frameTimer;
+
     [SerializeField] GameObject heal;
     [SerializeField] GameObject fireRate;
     [SerializeField] GameObject laser;
     [SerializeField] GameObject shotgun;
+
+     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] walkSprites;
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private float frameRate = 0.1f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,6 +53,14 @@ public class EnemyAI : MonoBehaviour
         {
             case States.alive:
                 UpdateAlive();
+                if (target != null)
+            {
+                PlayWalkAnimation();
+            }
+            else
+            {
+                spriteRenderer.sprite = idleSprite;
+            }
                 break;
             case States.dead:
                 UpdateDead();
@@ -68,6 +85,7 @@ public class EnemyAI : MonoBehaviour
 
             // Move towards target
             transform.Translate(direction * speed * Time.deltaTime);
+
         }
     }
     void UpdateDead()
@@ -77,7 +95,6 @@ public class EnemyAI : MonoBehaviour
         deathTimer += Time.deltaTime; //Keeps track of how long the enemy was dead for
         if (deathTimer >= GetComponent<EnemyFlash>().deathDuration) //Once the animation is finished, enemy is removed from play
         {
-            Debug.Log("I'm supposed to die!"); //For some reason this doesn't work, I moved the Destroy() to the coroutine on EnemyFlash
             Destroy(gameObject);
         }
     }
@@ -171,5 +188,16 @@ public class EnemyAI : MonoBehaviour
     {
         healthSystem.IncreaseHealth(amount);
         flash.FlashGreen();
+    }
+    void PlayWalkAnimation()
+    {
+        frameTimer -= Time.deltaTime;
+
+        if (frameTimer <= 0)
+        {
+            frameTimer = frameRate;
+            currentFrame = (currentFrame + 1) % walkSprites.Length;
+            spriteRenderer.sprite = walkSprites[currentFrame];
+        }
     }
 }
