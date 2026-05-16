@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class PayloadHealthSystem : HealthSystem
-
 {
     protected override void FixedUpdate()
     {

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +98,6 @@ public class PlayerControls : MonoBehaviour
                 timeAfterDashing = timeBetweenDashes;
             }
         }
-        
     }
 
     void PlayWalkAnimation()
