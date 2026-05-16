@@ -167,10 +167,10 @@ public class EnemyAI : MonoBehaviour
         state = States.dead;
         alive = false;
         flash.FadeBlack();
-        //RollForPowerup(); //See 173
+        RollForPowerup(); //See 173
     }
 
-    /*private void RollForPowerup() //Luke implemented his own version
+    private void RollForPowerup() //Luke implemented his own version
     {
         int roll = Random.Range(1, 100);
         if (roll > 85)
@@ -185,7 +185,7 @@ public class EnemyAI : MonoBehaviour
             else
                 Instantiate(fireRate, transform.position, transform.rotation);
         }
-    }*/
+    }
 
     public void Heal(int amount)
     {
