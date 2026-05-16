@@ -762,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -249, y: -101}
+  m_AnchoredPosition: {x: -308, y: -130}
   m_SizeDelta: {x: -883.9705, y: -377.9202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328035155
@@ -1183,6 +1183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWin: 120
+  PAUSED: {fileID: 0}
+  QUIT: {fileID: 0}
+  RETRY: {fileID: 0}
+  GAMEOVER: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
