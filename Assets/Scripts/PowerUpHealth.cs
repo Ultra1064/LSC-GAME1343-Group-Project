@@ -15,6 +15,7 @@ public class PowerUpHealth : PowerUp
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.GetComponent<PlayerControls>() != null)
         {
             if (HealthUp != null)
@@ -22,4 +23,5 @@ public class PowerUpHealth : PowerUp
             Destroy(gameObject);
         }
     }
+
 }

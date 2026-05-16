@@ -49,3 +49,7 @@ public class PlayerHealthSystem : HealthSystem
         
     }
 }
+
+//"Hey, Angelo, why is the game over screen tied to the health bar instead of level manager?"
+//I needed to directly tie the game over screen to how much health is left in the health system of both the player and payload.
+//Level manager had no such values, so it must be done here.
