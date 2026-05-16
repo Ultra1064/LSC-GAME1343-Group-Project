@@ -9,6 +9,12 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float timeBetweenDashes = .2f;
 
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] walkSprites;
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private float frameRate = 0.1f;
+
+
     [SerializeField] Animator animator;
     
     private Vector2 moveInput;
@@ -17,7 +23,8 @@ public class PlayerControls : MonoBehaviour
     private bool dashing;
     private float timeAfterDashing;
 
-    private Vector2 rawInput;
+    private int currentFrame;
+    private float frameTimer;
 
     private void Awake()
     {
@@ -71,6 +78,15 @@ public class PlayerControls : MonoBehaviour
         {
             moveInput = moveAction.Player.Move.ReadValue<Vector2>();
             rb.linearVelocity = moveInput * moveSpeed;
+            
+            if (moveInput.magnitude > 0.1f)
+            {
+                PlayWalkAnimation();
+            }
+            else
+            {
+                spriteRenderer.sprite = idleSprite;
+            }
         }
         else
         {
@@ -81,21 +97,18 @@ public class PlayerControls : MonoBehaviour
                 timeAfterDashing = timeBetweenDashes;
             }
         }
-    }
-
-    void OnMove(InputValue v)
-    {
-        moveInput = v.Get<Vector2>();
         
     }
 
-    void Movement()
+    void PlayWalkAnimation()
     {
-        float currentSpeed = rawInput.magnitude;
+        frameTimer -= Time.deltaTime;
 
-        if (animator != null)
+        if (frameTimer <= 0)
         {
-            animator.SetFloat("Speed", currentSpeed);
+            frameTimer = frameRate;
+            currentFrame = (currentFrame + 1) % walkSprites.Length;
+            spriteRenderer.sprite = walkSprites[currentFrame];
         }
     }
 
