@@ -192,12 +192,19 @@ public class EnemyAI : MonoBehaviour
     void PlayWalkAnimation()
     {
         frameTimer -= Time.deltaTime;
+        //Timer that counts down based on frame rate. Once it hits 0, it resets to the frame rate and advances animation by one frame.
 
         if (frameTimer <= 0)
+        //If the timer reaches 0, do these things:
         {
             frameTimer = frameRate;
+            //advances animation by one frame and resets timer to current frame rate.
             currentFrame = (currentFrame + 1) % walkSprites.Length;
+            //Advances current frame by one in the array. Modulo used to loop back to beginning of array once it reaches its end.
             spriteRenderer.sprite = walkSprites[currentFrame];
+            //Sets sprite to the current frame's sprite. Actually changes what's on screen.
         }
+        //This basically cycles through the walk sprites based on the frame rate, and resets to the first sprite after it reaches the end of the array. 
+        //It also sets the sprite to the current frame's sprite.
     }
 }
