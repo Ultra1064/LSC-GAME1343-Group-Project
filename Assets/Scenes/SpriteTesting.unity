@@ -574,6 +574,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5807664816570927321, guid: 95dd76aee221c854ea02b885d95fca3a, type: 3}
     - target: {fileID: 4995047881753527858, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995047881753527858, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
+      propertyPath: m_Size.y
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995047881753527858, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6605157735818787724, guid: 5167c93ebb3e0294980e36ca2c3c3746, type: 3}
@@ -589,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4995047881753527858, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7492269898495190113, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
       propertyPath: m_Name
       value: Beeg Enemy
@@ -598,11 +610,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
---- !u!212 &1619565377 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5327259262976427941, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
-  m_PrefabInstance: {fileID: 3871474348984611797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1691354848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7804292721962610205, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
@@ -1088,11 +1095,11 @@ PrefabInstance:
     - target: {fileID: 4226665231014897658, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
       propertyPath: healthBarSpriteRenderer
       value: 
-      objectReference: {fileID: 1619565377}
+      objectReference: {fileID: 0}
     - target: {fileID: 4226665231014897658, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
       propertyPath: jeepHealthSpriteRenderer
       value: 
-      objectReference: {fileID: 1619565377}
+      objectReference: {fileID: 0}
     - target: {fileID: 6999525372106873208, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
       propertyPath: m_Size.x
       value: 4
