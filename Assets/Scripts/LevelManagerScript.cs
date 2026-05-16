@@ -8,12 +8,15 @@ public class LevelManagerScript : MonoBehaviour
     private float currTimer = 0f;
     void Update()
     {
-        if(currTimer > timeToWin)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            SceneManager.LoadScene(2);
+            if (currTimer > timeToWin)
+            {
+                SceneManager.LoadScene(2);
+            }
+            Debug.Log(currTimer);
+            currTimer += Time.deltaTime;
         }
-        Debug.Log(currTimer);
-        currTimer += Time.deltaTime;
     }
     public void GoToStartMenu()
     {
