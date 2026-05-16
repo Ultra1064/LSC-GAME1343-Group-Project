@@ -17,7 +17,6 @@ public class PlayerShooter : MonoBehaviour
     [Header("Weapon Stats and Timers")]
     [SerializeField] int laserDamage = 10;
     [SerializeField] float timeBetweenBullets = 1f;
-    [SerializeField] float fireRateTimer = 10f;
     [SerializeField] float shotgunTimer = 10f;
     [SerializeField] float laserTimer = 5f;
 
@@ -36,7 +35,6 @@ public class PlayerShooter : MonoBehaviour
     private bool laserOn = false;
 
     // Power Up Timers
-    private float currFireRateTimer = 10f;
     private float currShotgunTimer = 10f;
     private float currLaserTimer = 5f;
 
@@ -64,11 +62,6 @@ public class PlayerShooter : MonoBehaviour
             Shoot();
         else
             lineRenderer.enabled = false;
-        if (currFireRateTimer >= fireRateTimer)
-        {
-            currFireRateTimer = fireRateTimer;
-            timeBetweenBullets = 1.0f;
-        }
         if (currShotgunTimer >= shotgunTimer)
         {
             currShotgunTimer = shotgunTimer;
@@ -82,7 +75,6 @@ public class PlayerShooter : MonoBehaviour
         if (timeAfterShooting >= timeBetweenBullets)
             timeAfterShooting = timeBetweenBullets;
 
-        currFireRateTimer += Time.deltaTime;
         currShotgunTimer += Time.deltaTime;
         currLaserTimer += Time.deltaTime;
         timeAfterShooting += Time.deltaTime;
@@ -156,8 +148,7 @@ public class PlayerShooter : MonoBehaviour
     }
     public void IncreasedFireRate()
     {
-        timeBetweenBullets /= 10.0f;
-        currFireRateTimer = 0;
+        timeBetweenBullets /= 1.5f;
     }
     public void ShotgunOn()
     {

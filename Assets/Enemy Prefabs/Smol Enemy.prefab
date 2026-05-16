@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 6474257621868486970}
   - component: {fileID: 485359340435769201}
   - component: {fileID: 3685656665732890010}
+  - component: {fileID: 3622213424694516154}
   - component: {fileID: 2407889970776358008}
+  - component: {fileID: 639755149359544513}
   m_Layer: 0
   m_Name: Smol Enemy
   m_TagString: Untagged
@@ -149,7 +151,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -183,6 +185,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.15
   deathDuration: 0.25
+--- !u!114 &3622213424694516154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169895056953731029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a7dcc895ca1b846b01b30cc7f62127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2407889970776358008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +219,16 @@ MonoBehaviour:
   fireRate: {fileID: 5712141986779119763, guid: bb833782e17cca54f92516349db969c2, type: 3}
   laser: {fileID: 8672301646958888595, guid: 6f8ac57f75d0a034fb742a6ee04c0ae8, type: 3}
   shotgun: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
+--- !u!114 &639755149359544513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169895056953731029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20bb16fc1bc15042b32f7337bb583b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 10

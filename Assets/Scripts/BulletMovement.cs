@@ -25,7 +25,7 @@ public class BulletMovement : MonoBehaviour
 
     private void Start()
     {
-        source.PlayOneShot(fire); //This plays a sound when a bullet is fired
+        //source.PlayOneShot(fire); //This plays a sound when a bullet is fired
     }
     private void FixedUpdate()
     {
@@ -42,7 +42,6 @@ public class BulletMovement : MonoBehaviour
             collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
             source.PlayOneShot(hit); //This plays a sound when the bullet hits
             Destroy(gameObject);
-            
         }
     }
 }

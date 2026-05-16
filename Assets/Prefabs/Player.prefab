@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 2736835479604220861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013, y: -0.005, z: -0.1}
+  m_LocalPosition: {x: -0.013, y: 0.88, z: -0.1}
   m_LocalScale: {x: 1.82, y: 1.82, z: 1.82}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 5108677833001198162}
   - component: {fileID: 1312032392218044132}
   - component: {fileID: 8163810032213619615}
+  - component: {fileID: 1632420619554707142}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -265,6 +266,7 @@ MonoBehaviour:
   barrelEndLeft: {fileID: 6487802339471782846}
   playerLooking: {fileID: 3319212463724733816}
   lineRenderer: {fileID: 3605615889887882919}
+  laserDamage: 10
   timeBetweenBullets: 0.5
   fireRateTimer: 10
   shotgunTimer: 10
@@ -284,6 +286,15 @@ MonoBehaviour:
   moveSpeed: 3
   dashSpeed: 5
   timeBetweenDashes: 0.3
+  spriteRenderer: {fileID: 6045404833556241600}
+  walkSprites:
+  - {fileID: -2080235868930401869, guid: f92920f6c8add1243b76b8c6ce684f5d, type: 3}
+  - {fileID: -181635447691561865, guid: 608dc42f884601f45baa23962f252800, type: 3}
+  - {fileID: -2080235868930401869, guid: f92920f6c8add1243b76b8c6ce684f5d, type: 3}
+  - {fileID: 1366905828517826838, guid: eebfbd0d061468f48927ce2c65d3162b, type: 3}
+  idleSprite: {fileID: -4589920984047130748, guid: f460d5b413571624cb484cb2bfd70f22, type: 3}
+  frameRate: 0.3
+  animator: {fileID: 0}
 --- !u!114 &8163810032213619615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +307,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ce299b0afdccc41af28bee1edcce6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
+  damagedCooldown: 2
+  JeepGood: []
+  JeepDamaged: []
+  jeepSpriteRenderer: {fileID: 0}
+  HealthBarSprites:
+  - {fileID: 21300000, guid: b00ac03d29aee2d49ab3ae0e7f5e3a5e, type: 3}
+  - {fileID: 21300000, guid: 9f7c873e00549d84f9bc74f6e7a0777f, type: 3}
+  - {fileID: 21300000, guid: 343bd48798b153a459ce800f8df6cbff, type: 3}
+  - {fileID: 21300000, guid: 97ec3f1e021854948a00d2c4cc1b6a23, type: 3}
+  - {fileID: 21300000, guid: 6e8e353f85c140b4eada6bca6cdabf60, type: 3}
+  - {fileID: 21300000, guid: 5d2e3f78aee00424dbff5238ef9131f8, type: 3}
+  - {fileID: 21300000, guid: b3188c3cf572d6245b6200b7a3b85085, type: 3}
+  healthBarSpriteRenderer: {fileID: 0}
+  JeepHealthSprites: []
+  jeepHealthSpriteRenderer: {fileID: 0}
+--- !u!95 &1632420619554707142
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461526555046557702}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d24f6dfd04ba68a41ba2f7835b4ba2a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4905620217045463883
 GameObject:
   m_ObjectHideFlags: 0
