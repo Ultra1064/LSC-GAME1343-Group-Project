@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
-
+//There is a lot of unused or unoptimized code ahead of you, apologies.
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private int damageValue = 1;
     [SerializeField] public Transform target;
     [SerializeField] States state;
+    public bool alive = true; //It's redundant, and completely overrides the need for a state machine, but I need this for BulletMovement
 
     SpriteRenderer sr;
     Rigidbody2D rb;
@@ -37,6 +38,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         state = States.alive;
+        alive = true;
 
         rb = GetComponent<Rigidbody2D>();
         healthSystem = GetComponent<EnemyHealthSystem>();
@@ -161,13 +163,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Death()
     {
-        //source.PlayOneShot(die); //This plays the sound when the enemy dies
+        source.PlayOneShot(die); //This plays the sound when the enemy dies
         state = States.dead;
+        alive = false;
         flash.FadeBlack();
-        RollForPowerup();
+        //RollForPowerup(); //See 173
     }
 
-    private void RollForPowerup()
+    /*private void RollForPowerup() //Luke implemented his own version
     {
         int roll = Random.Range(1, 100);
         if (roll > 85)
@@ -182,7 +185,7 @@ public class EnemyAI : MonoBehaviour
             else
                 Instantiate(fireRate, transform.position, transform.rotation);
         }
-    }
+    }*/
 
     public void Heal(int amount)
     {

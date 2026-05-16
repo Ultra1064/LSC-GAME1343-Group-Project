@@ -268,7 +268,6 @@ MonoBehaviour:
   lineRenderer: {fileID: 3605615889887882919}
   laserDamage: 10
   timeBetweenBullets: 0.5
-  fireRateTimer: 10
   shotgunTimer: 10
   laserTimer: 5
 --- !u!114 &1312032392218044132
@@ -309,9 +308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 60
   damagedCooldown: 2
-  JeepGood: []
-  JeepDamaged: []
-  jeepSpriteRenderer: {fileID: 0}
   HealthBarSprites:
   - {fileID: 21300000, guid: b00ac03d29aee2d49ab3ae0e7f5e3a5e, type: 3}
   - {fileID: 21300000, guid: 9f7c873e00549d84f9bc74f6e7a0777f, type: 3}
@@ -321,8 +317,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d2e3f78aee00424dbff5238ef9131f8, type: 3}
   - {fileID: 21300000, guid: b3188c3cf572d6245b6200b7a3b85085, type: 3}
   healthBarSpriteRenderer: {fileID: 0}
-  JeepHealthSprites: []
-  jeepHealthSpriteRenderer: {fileID: 0}
+  hurt: {fileID: 8300000, guid: f6491b581ad12f24e97cac41e1224d01, type: 3}
+  die: {fileID: 8300000, guid: feb999968ac9fba46b232cacef024c8c, type: 3}
 --- !u!95 &1632420619554707142
 Animator:
   serializedVersion: 7

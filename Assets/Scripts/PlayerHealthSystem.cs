@@ -6,11 +6,15 @@ public class PlayerHealthSystem : HealthSystem
        
     [SerializeField] private Sprite[] HealthBarSprites;
     [SerializeField] private SpriteRenderer healthBarSpriteRenderer;
+    AudioSource source;
+    [SerializeField] AudioClip hurt;
+    [SerializeField] AudioClip die;
 
 
     protected override void Start()
     {
         health = maxHealth;
+        source = Object.FindFirstObjectByType<AudioSource>(); //Needed to add this for sound
     }
 
     public override void IncreaseHealth(int health)
@@ -23,6 +27,7 @@ public class PlayerHealthSystem : HealthSystem
 
     public override void DecreaseHealth(int health)
     {
+        source.PlayOneShot(hurt);
         base.DecreaseHealth(health);
         UpdateHealthVisuals();
     }
