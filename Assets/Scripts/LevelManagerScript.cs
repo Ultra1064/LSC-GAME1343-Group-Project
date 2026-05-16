@@ -19,6 +19,14 @@ public class LevelManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void GoToLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene(3);
+    }
     public void Quit()
     {
         Application.Quit();
