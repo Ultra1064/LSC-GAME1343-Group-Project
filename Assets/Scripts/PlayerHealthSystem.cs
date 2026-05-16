@@ -6,4 +6,10 @@ public class PlayerHealthSystem : HealthSystem
     {
         health = maxHealth;
     }
+    public override void IncreaseHealth(int health)
+    {
+        if (health < maxHealth)
+            this.health += health;
+        Debug.Log("PlayerIncreasedHealth");
+    }
 }
