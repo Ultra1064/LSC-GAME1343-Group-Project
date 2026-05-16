@@ -192,6 +192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4226665231014897658, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
+      propertyPath: jeepHealthSpriteRenderer
+      value: 
+      objectReference: {fileID: 787798768}
     - target: {fileID: 6999525372106873208, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
       propertyPath: m_Size.y
       value: 1.3675832
@@ -310,6 +314,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a1432d7ae7b21b409cc4b2af9c604a4, type: 3}
+--- !u!1001 &787798767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8253165274776846746, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_Name
+      value: JeepHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159458501591578583, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+--- !u!212 &787798768 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5327259262976427941, guid: 187dab4f0ebb2554bbfc49a7aaa94669, type: 3}
+  m_PrefabInstance: {fileID: 787798767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &822359384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7804292721962610205, guid: ce3fe05e8c6cc604d801a4f7cb46a4df, type: 3}
@@ -652,3 +718,4 @@ SceneRoots:
   - {fileID: 2008260423}
   - {fileID: 691872840}
   - {fileID: 1504117733}
+  - {fileID: 787798767}

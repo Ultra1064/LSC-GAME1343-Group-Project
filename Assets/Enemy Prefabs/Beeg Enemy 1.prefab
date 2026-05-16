@@ -215,10 +215,10 @@ MonoBehaviour:
   target: {fileID: 0}
   state: 0
   die: {fileID: 8300000, guid: 2c4691e107f6ae644b4b199c43dacf42, type: 3}
-  heal: {fileID: 0}
-  fireRate: {fileID: 5712141986779119763, guid: bb833782e17cca54f92516349db969c2, type: 3}
-  laser: {fileID: 8672301646958888595, guid: 6f8ac57f75d0a034fb742a6ee04c0ae8, type: 3}
-  shotgun: {fileID: 1546739198973679965, guid: c9fc95d3cbb0e1045805d1b459bd8e59, type: 3}
+  heal: {fileID: 7224619868510119814, guid: 128304699469701459d458e0764dcdef, type: 3}
+  fireRate: {fileID: 4402501066780964355, guid: 9bc01e5e900793b4b958eaf4851471c0, type: 3}
+  laser: {fileID: 3967759063222459371, guid: f4a07217afce0944782e451827ec3e2d, type: 3}
+  shotgun: {fileID: 3425605956594154380, guid: 9df59f0968065c540be13f79c3115d36, type: 3}
   spriteRenderer: {fileID: 1971152950863824611}
   walkSprites:
   - {fileID: 4675033807797806678, guid: 359014592c6b8074889203d1eaf1f943, type: 3}

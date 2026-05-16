@@ -67,6 +67,7 @@ Assets/
   FireRatePowerUpOn.cs
   HealthSystem.cs
   Laser.cs
+  LevelManagerScript.cs
   PayloadHealthSystem.cs
   PlayerControls.cs
   PlayerHealthSystem.cs
