@@ -124,6 +124,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4995047881753527858, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
   m_PrefabInstance: {fileID: 1382714378}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &507002614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7492269898495190113, guid: ee39730f88142bd4a98a16f1f346d9f5, type: 3}
+  m_PrefabInstance: {fileID: 1382714378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &619542048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,6 +145,10 @@ PrefabInstance:
       propertyPath: center
       value: 
       objectReference: {fileID: 1691354848}
+    - target: {fileID: 6742592734858586564, guid: 5a1432d7ae7b21b409cc4b2af9c604a4, type: 3}
+      propertyPath: bigEnemy
+      value: 
+      objectReference: {fileID: 507002614}
     - target: {fileID: 8229924807789051547, guid: 5a1432d7ae7b21b409cc4b2af9c604a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.765691
