@@ -15,16 +15,28 @@ public class PayloadHealthSystem : HealthSystem
         Debug.Log("Payload health: " + health);
 
     }
-    private void UpdateHealtVisuals()
+    public override void DecreaseHealth(int health)
+    {
+        base.DecreaseHealth(health);
+        UpdateHealthVisuals();
+    }
+
+    private void UpdateHealthVisuals()
     {
         if (jeepHealthSpriteRenderer != null) 
         {
             if (health >= 100)
+            {
                 jeepHealthSpriteRenderer.sprite = JeepHealthSprites[0];
+                jeepSpriteRenderer.sprite = JeepGood[0];
+            }
             else if (health >= 75)
                 jeepHealthSpriteRenderer.sprite = JeepHealthSprites[1];
             else if (health >= 50)
+            {
                 jeepHealthSpriteRenderer.sprite = JeepHealthSprites[2];
+                jeepSpriteRenderer.sprite = JeepDamaged[0];
+            }
             else if (health >= 25)
                 jeepHealthSpriteRenderer.sprite = JeepHealthSprites[3];
             else

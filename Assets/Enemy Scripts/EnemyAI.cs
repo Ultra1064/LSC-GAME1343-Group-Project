@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] States state;
 
     SpriteRenderer sr;
-    Rigidbody rb;
+    Rigidbody2D rb;
     EnemyHealthSystem healthSystem;
     EnemyFlash flash;
 
@@ -23,13 +23,18 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] GameObject laser;
     [SerializeField] GameObject shotgun;
 
+     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] walkSprites;
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private float frameRate = 0.1f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = States.alive;
 
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         healthSystem = GetComponent<EnemyHealthSystem>();
         flash = GetComponent<EnemyFlash>();
         sr = GetComponentInChildren<SpriteRenderer>(); //This grabs the Sprite Renderer on the 2D object.
@@ -83,7 +88,7 @@ public class EnemyAI : MonoBehaviour
     public void Knockback(float weaponKnockback) //Changed to float from int since Bullet Knockback on BulletMovement is a float *shrug*
     {
         Vector2 away = (transform.position - target.position).normalized; //This is flipped from the direction vector in UpdateAlive()
-        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
+        rb.AddForce(weaponKnockback * knockbackValue * away, ForceMode2D.Impulse); //ForceMode.Force is consistent, Impulse is a burst.
     } //The force is calculated by the knockback value of the enemy, plus the knockback value of the weapon that hit it
 
     /*

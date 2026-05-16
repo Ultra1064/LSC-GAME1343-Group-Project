@@ -17,7 +17,14 @@ public class PlayerHealthSystem : HealthSystem
     {
         if(this.health < maxHealth)
         this.health += health;
+        UpdateHealthVisuals();
         Debug.Log("PlayerIncreaseHealth");
+    }
+
+    public override void DecreaseHealth(int health)
+    {
+        base.DecreaseHealth(health);
+        UpdateHealthVisuals();
     }
 
         private void UpdateHealthVisuals()
