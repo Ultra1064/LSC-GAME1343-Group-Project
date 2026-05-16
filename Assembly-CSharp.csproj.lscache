@@ -72,6 +72,7 @@ Assets/
   PlayerHealthSystem.cs
   PlayerShooter.cs
   PowerUp.cs
+  PowerUpHealth.cs
   PowerUpHigherFireRate.cs
   PowerUpLaser.cs
   PowerUpShotgun.cs

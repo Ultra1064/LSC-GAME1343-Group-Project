@@ -6,18 +6,6 @@ public abstract class HealthSystem : MonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] protected float damagedCooldown = 2f;
 
-    [SerializeField] private Sprite[] JeepGood;
-    [SerializeField] private Sprite[] JeepDamaged;
-
-    [SerializeField] private SpriteRenderer jeepSpriteRenderer;
-
-    [SerializeField] private Sprite[] HealthBarSprites;
-    [SerializeField] private SpriteRenderer healthBarSpriteRenderer;
-
-    [SerializeField] private Sprite[] JeepHealthSprites;
-    [SerializeField] private SpriteRenderer jeepHealthSpriteRenderer;
-
-
 
     protected int health;
     protected float timeSinceLastDamaged;
@@ -48,4 +36,6 @@ public abstract class HealthSystem : MonoBehaviour
     {
         return health;
     }
+
+
 }
