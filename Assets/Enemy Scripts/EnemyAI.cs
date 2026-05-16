@@ -54,13 +54,13 @@ public class EnemyAI : MonoBehaviour
             case States.alive:
                 UpdateAlive();
                 if (target != null)
-            {
+                {
                 PlayWalkAnimation();
-            }
-            else
-            {
+                }
+                else
+                {
                 spriteRenderer.sprite = idleSprite;
-            }
+                }
                 break;
             case States.dead:
                 UpdateDead();
