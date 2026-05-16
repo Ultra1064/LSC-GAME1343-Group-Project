@@ -214,8 +214,6 @@ MonoBehaviour:
   JeepDamaged:
   - {fileID: -6967330639074741994, guid: 2541f74a1e113b4409c05cb872b41ff4, type: 3}
   jeepSpriteRenderer: {fileID: 3667089362001596456}
-  HealthBarSprites: []
-  healthBarSpriteRenderer: {fileID: 0}
   JeepHealthSprites:
   - {fileID: 135016840611433076, guid: 1bb78767c4193b244adc31a6c3b85b91, type: 3}
   - {fileID: -5133390007009920767, guid: d448a7b3fca0765479d0127f4343cf76, type: 3}
@@ -223,3 +221,5 @@ MonoBehaviour:
   - {fileID: 428709227481326111, guid: 013f5a330fcbf5444afee57144c1d531, type: 3}
   - {fileID: 7730094299477406390, guid: 169af7a64341c2f4e80ac557162407d8, type: 3}
   jeepHealthSpriteRenderer: {fileID: 0}
+  damage: {fileID: 8300000, guid: cb99418699ceff7428762ae021995baf, type: 3}
+  dead: {fileID: 8300000, guid: 16d6a0769be7b384fb11c1369d556c5e, type: 3}

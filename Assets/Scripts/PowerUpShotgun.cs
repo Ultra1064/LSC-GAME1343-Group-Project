@@ -16,6 +16,7 @@ public class PowerUpShotgun : PowerUp
     {
         if (collision.GetComponent<PlayerControls>() != null)
         {
+            source.PlayOneShot(get);
             if (ShotgunOn != null)
                 ShotgunOn.Invoke();
             Destroy(gameObject);

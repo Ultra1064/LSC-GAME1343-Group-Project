@@ -7,6 +7,15 @@ public class PayloadHealthSystem : HealthSystem
     [SerializeField] private SpriteRenderer jeepSpriteRenderer;
     [SerializeField] private Sprite[] JeepHealthSprites;
     [SerializeField] private SpriteRenderer jeepHealthSpriteRenderer;
+    AudioSource source;
+    [SerializeField] AudioClip damage;
+    [SerializeField] AudioClip dead;
+
+    protected override void Start()
+    {
+        health = maxHealth;
+        source = Object.FindFirstObjectByType<AudioSource>(); //Needed to add this for sound
+    }
     protected override void FixedUpdate()
     {
         timeSinceLastDamaged += Time.deltaTime;
@@ -17,6 +26,7 @@ public class PayloadHealthSystem : HealthSystem
     }
     public override void DecreaseHealth(int health)
     {
+        source.PlayOneShot(damage);
         base.DecreaseHealth(health);
         UpdateHealthVisuals();
     }

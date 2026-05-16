@@ -15,6 +15,7 @@ public class PowerUpLaser : PowerUp
     {
         if (collision.GetComponent<PlayerControls>() != null)
         {
+            source.PlayOneShot(get);
             if (LaserOn != null)
                 LaserOn.Invoke();
             Destroy(gameObject);

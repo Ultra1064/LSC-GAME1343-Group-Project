@@ -25,7 +25,7 @@ public class BulletMovement : MonoBehaviour
 
     private void Start()
     {
-        //source.PlayOneShot(fire); //This plays a sound when a bullet is fired
+        source.PlayOneShot(fire); //This plays a sound when a bullet is fired
     }
     private void FixedUpdate()
     {
@@ -36,12 +36,16 @@ public class BulletMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyIdentifier>() != null)
+        if (collision.GetComponent<EnemyAI>() != null)
         {
-            collision.GetComponent<EnemyAI>().Damage(bulletDamage); //Changed from collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage); If Damage isn't called, the enemy won't flash red. -Victor
-            collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
-            //source.PlayOneShot(hit); //This plays a sound when the bullet hits
-            Destroy(gameObject);
+            if (collision.GetComponent<EnemyAI>().alive)
+            {
+                collision.GetComponent<EnemyAI>().Damage(bulletDamage); //Changed from collision.GetComponent<EnemyHealthSystem>().DecreaseHealth(bulletDamage); If Damage isn't called, the enemy won't flash red. -Victor
+                collision.GetComponent<EnemyAI>().Knockback(bulletKnockback);
+                source.PlayOneShot(hit); //This plays a sound when the bullet hits
+                Destroy(gameObject);
+            }
+            
         }
     }
 }

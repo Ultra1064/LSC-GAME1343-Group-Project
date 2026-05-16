@@ -14,6 +14,7 @@ public class PowerUpHigherFireRate : PowerUp
     {
         if (collision.GetComponent<PlayerShooter>() == player)
         {
+            source.PlayOneShot(get);
             if (IncreaseFireRate != null)
                 IncreaseFireRate.Invoke();
             Destroy(gameObject);
